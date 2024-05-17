@@ -1,23 +1,21 @@
-import { useState } from 'react';
 import './App.css';
+import { useState } from 'react';
 import { CreateNumbersAvailableForBets } from './CreateNumbersAvailableForBets';
 
 function App() {
-   const [chosenNumbers, setChosenNumbers] = useState<number[]>([]);
+   const [chosenNumbers, setChosenNumbers] = useState<string[]>([]);
 
    function handleCheckboxChosenNumber(e: React.ChangeEvent<HTMLInputElement>) {
-      const { value, checked } = e.target;
-      const valueNumber = parseInt(value);
+      const { name, checked } = e.target;
 
       if (checked) {
-         setChosenNumbers((prevState) => [...prevState, valueNumber]);
+         setChosenNumbers((prevState) => [...prevState, name]);
       } else {
-         setChosenNumbers((prevState) => [
-            ...prevState.filter((number) => number === valueNumber),
-         ]);
+         setChosenNumbers((prevState) => {
+            return [...prevState.filter((number) => number != name)];
+         });
       }
    }
-
    console.log(chosenNumbers);
 
    return (
@@ -36,6 +34,11 @@ function App() {
                </label>
             ))}
          </form>
+         <div>
+            {chosenNumbers.map((number) => (
+               <span key={number}>{`${number} `}</span>
+            ))}
+         </div>
       </main>
    );
 }
