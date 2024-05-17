@@ -1,0 +1,28 @@
+#root {
+   max-width: 1280px;
+   height: 100vh;
+   margin: 0 auto;
+   padding: 2rem;
+   text-align: center;
+}
+
+#form-aposta {
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 10px;
+}
+#form-aposta label {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 50px;
+   height: 50px;
+   background-color: #252525;
+   border: 2px solid #fff;
+   border-radius: 50%;
+   cursor: pointer;
+}
+#form-aposta input[type='checkbox'] {
+   display: none;
+}
