@@ -1,21 +1,22 @@
 import './App.css';
 import { useState } from 'react';
-import { CreateNumbersAvailableForBets } from './CreateNumbersAvailableForBets';
+import { CreateNumbersAvailableForBets } from './utils/CreateNumbersAvailableForBets';
 
 function App() {
-   const [chosenNumbers, setChosenNumbers] = useState<string[]>([]);
+   const [chosenNumbers, setChosenNumbers] = useState<number[]>([]);
 
    function handleCheckboxChosenNumber(e: React.ChangeEvent<HTMLInputElement>) {
       const { name, checked } = e.target;
 
       if (checked) {
-         setChosenNumbers((prevState) => [...prevState, name]);
+         setChosenNumbers((prevState) => [...prevState, +name]);
       } else {
          setChosenNumbers((prevState) => {
-            return [...prevState.filter((number) => number != name)];
+            return [...prevState.filter((number) => number != +name)];
          });
       }
    }
+
    console.log(chosenNumbers);
 
    return (
@@ -34,6 +35,7 @@ function App() {
                </label>
             ))}
          </form>
+         <h2>Números escolhidos:</h2>
          <div>
             {chosenNumbers.map((number) => (
                <span key={number}>{`${number} `}</span>
