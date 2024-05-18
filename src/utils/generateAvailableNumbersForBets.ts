@@ -17,7 +17,8 @@ export default function generateAvailableNumbersForBets(
    const availableNumbers: string[] = [];
 
    for (let i = 1; i <= +totalNumbersAvailable; i++) {
-      availableNumbers.push(addNumberZero(i.toString()));
+      const numString = i.toString();
+      availableNumbers.push(addNumberZero(numString));
    }
 
    return availableNumbers;

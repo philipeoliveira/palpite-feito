@@ -5,7 +5,7 @@ export function compareNumbers(num1: string, num2: string): number {
 export default function sortNumbersAscending(
    originalArray: string[]
 ): string[] {
-   const sortedArray = originalArray.map((numString) => `${numString} `);
+   const sortedArray = [...originalArray].sort(compareNumbers);
 
-   return sortedArray.sort(compareNumbers);
+   return sortedArray;
 }

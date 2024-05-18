@@ -48,7 +48,11 @@ function App() {
          </div>
 
          <h2>Números na ordem crescente:</h2>
-         <div>{sortNumbersAscending(selectedNumbers)}</div>
+         <div>
+            {sortNumbersAscending(selectedNumbers).map((numString) => (
+               <span key={numString}>{`${numString} `}</span>
+            ))}
+         </div>
       </main>
    );
 }
