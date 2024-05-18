@@ -9,9 +9,9 @@
  * // Resultado esperado: [1, 2, 3, 4, 5]
  */
 
-export const CreateNumbersAvailableForBets = (
+export function CreateNumbersAvailableForBets(
    totalNumbersAvailable: number
-): number[] => {
+): number[] {
    const availableNumbers: number[] = [];
 
    for (let i = 1; i <= totalNumbersAvailable; i++) {
@@ -19,4 +19,4 @@ export const CreateNumbersAvailableForBets = (
    }
 
    return availableNumbers;
-};
+}
