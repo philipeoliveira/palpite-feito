@@ -9,9 +9,9 @@
  * // Resultado esperado: ["01", "02", "03", "04", "05"]
  */
 
-import { addNumberZero } from './addNumberZero';
+import addNumberZero from './addNumberZero';
 
-export function generateAvailableNumbersForBets(
+export default function generateAvailableNumbersForBets(
    totalNumbersAvailable: string
 ): string[] {
    const availableNumbers: string[] = [];

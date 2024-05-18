@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
-import { generateAvailableNumbersForBets } from './utils/generateAvailableNumbersForBets';
+import generateAvailableNumbersForBets from './utils/generateAvailableNumbersForBets';
+import sortNumbersAscending from './utils/sortNumbersAscending';
 
 function App() {
    const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
@@ -20,6 +21,7 @@ function App() {
    }
 
    console.log(selectedNumbers);
+   console.log(sortNumbersAscending(selectedNumbers));
 
    return (
       <main>
@@ -37,12 +39,16 @@ function App() {
                </label>
             ))}
          </form>
-         <h2>Números escolhidos:</h2>
+
+         <h2>Números na ordem escolhida:</h2>
          <div>
             {selectedNumbers.map((numString) => (
                <span key={numString}>{`${numString} `}</span>
             ))}
          </div>
+
+         <h2>Números na ordem crescente:</h2>
+         <div>{sortNumbersAscending(selectedNumbers)}</div>
       </main>
    );
 }

@@ -9,7 +9,7 @@
  * // Resultado esperado: "03"
  */
 
-export function addNumberZero(numString: string): string {
+export default function addNumberZero(numString: string): string {
    if (+numString <= 9) {
       return '0' + numString;
    }
