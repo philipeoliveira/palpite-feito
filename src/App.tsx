@@ -1,44 +1,46 @@
 import './App.css';
 import { useState } from 'react';
-import { CreateNumbersAvailableForBets } from './utils/CreateNumbersAvailableForBets';
+import { generateAvailableNumbersForBets } from './utils/generateAvailableNumbersForBets';
 
 function App() {
-   const [chosenNumbers, setChosenNumbers] = useState<number[]>([]);
+   const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
 
-   function handleCheckboxChosenNumber(e: React.ChangeEvent<HTMLInputElement>) {
-      const { name, checked } = e.target;
+   function handleSelectedNumber(e: React.ChangeEvent<HTMLInputElement>) {
+      const selectedNumber = e.target.name;
 
-      if (checked) {
-         setChosenNumbers((prevState) => [...prevState, +name]);
+      if (e.target.checked) {
+         setSelectedNumbers((prevState) => [...prevState, selectedNumber]);
       } else {
-         setChosenNumbers((prevState) => {
-            return [...prevState.filter((number) => number != +name)];
+         setSelectedNumbers((prevState) => {
+            return [
+               ...prevState.filter((numString) => numString !== selectedNumber),
+            ];
          });
       }
    }
 
-   console.log(chosenNumbers);
+   console.log(selectedNumbers);
 
    return (
       <main>
          <h1>Checkbox com useState adicionando em array</h1>
-         <form id='form-aposta'>
-            {CreateNumbersAvailableForBets(25).map((number) => (
-               <label key={number}>
+         <form id='bet-form'>
+            {generateAvailableNumbersForBets('25').map((numString) => (
+               <label key={numString}>
                   <input
                      type='checkbox'
-                     name={`${number}`}
-                     id={`number-${number}`}
-                     onChange={handleCheckboxChosenNumber}
+                     name={`${numString}`}
+                     id={`number-${numString}`}
+                     onChange={handleSelectedNumber}
                   />
-                  {number}
+                  {numString}
                </label>
             ))}
          </form>
          <h2>Números escolhidos:</h2>
          <div>
-            {chosenNumbers.map((number) => (
-               <span key={number}>{`${number} `}</span>
+            {selectedNumbers.map((numString) => (
+               <span key={numString}>{`${numString} `}</span>
             ))}
          </div>
       </main>
