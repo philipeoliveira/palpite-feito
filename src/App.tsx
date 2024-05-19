@@ -1,7 +1,8 @@
 import './App.css';
 import { useState } from 'react';
-import generateAvailableNumbersForBets from './utils/generateAvailableNumbersForBets';
-import sortNumbersAscending from './utils/sortNumbersAscending';
+import { generateAvailableNumbersForBet } from './utils/generateAvailableNumbersForBet';
+import { sortNumbersAscending } from './utils/sortNumbersAscending';
+import { generateBet } from './utils/generateBet';
 
 function App() {
    const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
@@ -20,14 +21,11 @@ function App() {
       }
    }
 
-   console.log(selectedNumbers);
-   console.log(sortNumbersAscending(selectedNumbers));
-
    return (
       <main>
          <h1>Checkbox com useState adicionando em array</h1>
          <form id='bet-form'>
-            {generateAvailableNumbersForBets('25').map((numString) => (
+            {generateAvailableNumbersForBet('25').map((numString) => (
                <label key={numString}>
                   <input
                      type='checkbox'
@@ -50,6 +48,13 @@ function App() {
          <h2>Números na ordem crescente:</h2>
          <div>
             {sortNumbersAscending(selectedNumbers).map((numString) => (
+               <span key={numString}>{`${numString} `}</span>
+            ))}
+         </div>
+
+         <h2>Números sorteados aleatoriamente crescente:</h2>
+         <div>
+            {sortNumbersAscending(generateBet('15', '25')).map((numString) => (
                <span key={numString}>{`${numString} `}</span>
             ))}
          </div>

@@ -1,3 +1,5 @@
+import { addNumberZero } from './addNumberZero';
+
 /**
  * @description Gera uma sequência numérica com todos os números disponíveis do jogo para a aposta.
  * @param {string} totalNumbersAvailable String -> Total de números disponíveis do jogo.
@@ -9,9 +11,7 @@
  * // Resultado esperado: ["01", "02", "03", "04", "05"]
  */
 
-import addNumberZero from './addNumberZero';
-
-export default function generateAvailableNumbersForBets(
+export function generateAvailableNumbersForBet(
    totalNumbersAvailable: string
 ): string[] {
    const availableNumbers: string[] = [];
