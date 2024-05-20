@@ -1,12 +1,12 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import { generateBet } from './utils/generateBet';
 import { generateAvailableNumbersForBet } from './utils/generateAvailableNumbersForBet';
 import { sortNumbersAscending } from './utils/sortNumbersAscending';
-import { generateBet } from './utils/generateBet';
 
 function App() {
-   const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
    const [generatedNumbers, setGeneratedNumbers] = useState<string[]>([]);
+   const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
 
    useEffect(() => {
       setGeneratedNumbers(sortNumbersAscending(generateBet('15', '25')));
@@ -43,6 +43,13 @@ function App() {
             ))}
          </form>
 
+         <h2>Números sorteados aleatoriamente crescente:</h2>
+         <div>
+            {generatedNumbers.map((numString) => (
+               <span key={numString}>{`${numString} `}</span>
+            ))}
+         </div>
+
          <h2>Números na ordem escolhida:</h2>
          <div>
             {selectedNumbers.map((numString) => (
@@ -53,13 +60,6 @@ function App() {
          <h2>Números na ordem crescente:</h2>
          <div>
             {sortNumbersAscending(selectedNumbers).map((numString) => (
-               <span key={numString}>{`${numString} `}</span>
-            ))}
-         </div>
-
-         <h2>Números sorteados aleatoriamente crescente:</h2>
-         <div>
-            {generatedNumbers.map((numString) => (
                <span key={numString}>{`${numString} `}</span>
             ))}
          </div>
