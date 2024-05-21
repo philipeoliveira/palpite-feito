@@ -51,6 +51,9 @@ export function Bet() {
             ))}
          </form>
 
+         <h2>Números na ordem crescente:</h2>
+         <div>{selectedNumbers.length} número(s)</div>
+
          <h2>Números sorteados aleatoriamente crescente:</h2>
          <div>
             {randonBet.map((numString) => (
