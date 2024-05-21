@@ -29,7 +29,9 @@ export function compareNumbers(num1: string, num2: string): number {
  * // Resultado esperado: ["02", "04", "05"]
  */
 
-export function sortNumbersAscending(originalArray: string[]): string[] {
+export default function sortNumbersAscending(
+   originalArray: string[]
+): string[] {
    const sortedArray = [...originalArray].sort(compareNumbers);
 
    return sortedArray;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { generateBet } from '../utils/generateBet';
 import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumbersForBet';
-import { sortNumbersAscending } from '../utils/sortNumbersAscending';
+import sortNumbersAscending from '../utils/sortNumbersAscending';
 
 export function Bet() {
    const [generatedBet, setGeneratedBet] = useState<string[]>([]);
