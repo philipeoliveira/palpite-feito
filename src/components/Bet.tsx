@@ -17,7 +17,9 @@ export function Bet() {
       const selectedNumber = e.target.name;
 
       if (e.target.checked) {
-         setSelectedNumbers((prevState) => [...prevState, selectedNumber]);
+         selectedNumbers.length < 15
+            ? setSelectedNumbers((prevState) => [...prevState, selectedNumber])
+            : alert('O limite de números para esta aposta foi atingido.');
       } else {
          setSelectedNumbers((prevState) => {
             return [
