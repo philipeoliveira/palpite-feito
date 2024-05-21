@@ -4,11 +4,13 @@ import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumber
 import sortNumbersAscending from '../utils/sortNumbersAscending';
 
 export function Bet() {
-   const [generatedBet, setGeneratedBet] = useState<string[]>([]);
+   const [randonBet, setRandonBet] = useState<string[]>([]);
    const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
 
    useEffect(() => {
-      setGeneratedBet(sortNumbersAscending(generateBet('15', '25')));
+      const generatedBet = sortNumbersAscending(generateBet('15', '25'));
+      setRandonBet(generatedBet);
+      setSelectedNumbers(generatedBet);
    }, []);
 
    function handleSelectedNumber(e: React.ChangeEvent<HTMLInputElement>) {
@@ -29,12 +31,18 @@ export function Bet() {
       <section>
          <form id='bet-form'>
             {generateAvailableNumbersForBet('25').map((numString) => (
-               <label key={numString}>
+               <label
+                  key={numString}
+                  className={
+                     selectedNumbers.includes(numString) ? 'checked' : ''
+                  }
+               >
                   <input
                      type='checkbox'
                      name={`${numString}`}
                      id={`number-${numString}`}
                      onChange={handleSelectedNumber}
+                     checked={selectedNumbers.includes(numString) && true}
                   />
                   {numString}
                </label>
@@ -43,7 +51,7 @@ export function Bet() {
 
          <h2>Números sorteados aleatoriamente crescente:</h2>
          <div>
-            {generatedBet.map((numString) => (
+            {randonBet.map((numString) => (
                <span key={numString}>{`${numString} `}</span>
             ))}
          </div>
