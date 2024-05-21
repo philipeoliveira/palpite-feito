@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { generateBet } from '../utils/generateBet';
 import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumbersForBet';
+import { generateBet } from '../utils/generateBet';
 import sortNumbersAscending from '../utils/sortNumbersAscending';
 
 export function Bet() {
@@ -42,7 +42,9 @@ export function Bet() {
                      name={`${numString}`}
                      id={`number-${numString}`}
                      onChange={handleSelectedNumber}
-                     checked={selectedNumbers.includes(numString) && true}
+                     checked={
+                        selectedNumbers.includes(numString) ? true : false
+                     }
                   />
                   {numString}
                </label>

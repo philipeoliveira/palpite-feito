@@ -86,7 +86,7 @@ button:focus-visible {
    cursor: pointer;
 }
 #bet-form input[type='checkbox'] {
-   //display: none;
+   display: none;
 }
 .checked {
    background-color: #fff;
