@@ -1,4 +1,4 @@
-import { addNumberZero } from './addNumberZero';
+import { addNumberZero } from '../utils/handleStrings';
 
 /**
  * @description Gera aleatoriamente uma sequência de números referente a uma aposta.

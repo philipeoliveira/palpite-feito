@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumbersForBet';
 import { generateBet } from '../utils/generateBet';
 import sortNumbersAscending from '../utils/sortNumbersAscending';
+import { numbersInSingularOrPlural } from '../utils/handleStrings';
 
 export function Bet() {
    const [randonBet, setRandonBet] = useState<string[]>([]);
@@ -54,7 +55,7 @@ export function Bet() {
          </form>
 
          <h2>Números na ordem crescente:</h2>
-         <div>{selectedNumbers.length} número(s)</div>
+         <div>{numbersInSingularOrPlural(selectedNumbers.length)}</div>
 
          <h2>Números sorteados aleatoriamente crescente:</h2>
          <div>

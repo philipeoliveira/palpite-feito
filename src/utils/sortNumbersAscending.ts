@@ -14,6 +14,8 @@ export function compareNumbers(num1: string, num2: string): number {
    return parseInt(num1) - parseInt(num2);
 }
 
+/** --------------------------------------------------------------------------- */
+
 /**
  * @description Ordena uma lista de números em ordem crescente.
  * Para ordenar, a função sort() utilizada recebe como argumento o retorno da função comparaNumbers().
