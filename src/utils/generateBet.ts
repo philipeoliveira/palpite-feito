@@ -2,7 +2,7 @@ import { addNumberZero } from './addNumberZero';
 
 /**
  * @description Gera aleatoriamente uma sequência de números referente a uma aposta.
- * @param {string} numbersToGenerate  String -> Quantidade de números a serem gerados para a aposta.
+ * @param {string} totalNumbersToGenerate  String -> Quantidade de números a serem gerados para a aposta.
  * @param {string} totalNumbersAvailable String -> Total de números disponíveis para apostar.
  * @return {string[]} Array de string -> Lista de números gerados aleatoriamente dentro do total disponível para apostar.
  * @example
@@ -13,16 +13,18 @@ import { addNumberZero } from './addNumberZero';
  */
 
 export function generateBet(
-   numbersToGenerate: string,
+   totalNumbersToGenerate: string,
    totalNumbersAvailable: string
 ): string[] {
    const bet: string[] = [];
-   const chosenNums = +numbersToGenerate;
-   const numsAvailable = +totalNumbersAvailable;
+   const totalNumsToGenerate = +totalNumbersToGenerate;
+   const totalNumsAvailable = +totalNumbersAvailable;
 
-   if (numsAvailable > chosenNums) {
-      while (bet.length < chosenNums) {
-         const randomNumber = Math.floor(Math.random() * numsAvailable + 1);
+   if (totalNumsAvailable > totalNumsToGenerate) {
+      while (bet.length < totalNumsToGenerate) {
+         const randomNumber = Math.floor(
+            Math.random() * totalNumsAvailable + 1
+         );
          const randomNumString = addNumberZero(randomNumber.toString());
 
          if (!bet.includes(randomNumString)) {
