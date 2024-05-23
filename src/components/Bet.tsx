@@ -1,28 +1,13 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+
 import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumbersForBet';
 import { generateBet } from '../utils/generateBet';
 import sortNumbersAscending from '../utils/sortNumbersAscending';
 import { pluralizeNumber } from '../utils/handleStrings';
 
-interface modalitiesProps {
-   id: string;
-   name: string;
-   totalNumbersAvailable: string;
-   totalNumbersToBet: string;
-}
-
 export function Bet() {
-   const [modalitiesData, setModalitiesData] = useState<modalitiesProps[]>([]);
    const [randonBet, setRandonBet] = useState<string[]>([]);
    const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
-
-   useEffect(() => {
-      axios
-         .get('src/data/modalities.json')
-         .then((response) => setModalitiesData(response.data.modalities))
-         .catch((error) => console.error(error));
-   }, []);
 
    useEffect(() => {
       const generatedBet = sortNumbersAscending(generateBet('15', '25'));
@@ -70,7 +55,6 @@ export function Bet() {
             ))}
          </form>
 
-         <h2>Números na ordem crescente:</h2>
          <div>{pluralizeNumber(selectedNumbers.length)}</div>
 
          <h2>Números sorteados aleatoriamente crescente:</h2>
@@ -91,13 +75,6 @@ export function Bet() {
          <div>
             {sortNumbersAscending(selectedNumbers).map((numString) => (
                <span key={numString}>{`${numString} `}</span>
-            ))}
-         </div>
-
-         <h2>Modalidades do JSON</h2>
-         <div>
-            {modalitiesData.map((modality) => (
-               <span key={modality.id}>{`${modality.name} `}</span>
             ))}
          </div>
       </section>

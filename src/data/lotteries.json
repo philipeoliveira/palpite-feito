@@ -1,14 +1,14 @@
 {
-   "modalities": [
+   "lotteries": [
       {
          "id": "1",
-         "name": "lotofacil",
+         "name": "Lotofácil",
          "totalNumbersAvailable": "25",
          "totalNumbersToBet": "15"
       },
       {
          "id": "2",
-         "name": "lotomania",
+         "name": "Lotomania",
          "totalNumbersAvailable": "100",
          "totalNumbersToBet": "50"
       }
