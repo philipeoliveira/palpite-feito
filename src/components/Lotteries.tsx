@@ -8,13 +8,13 @@ interface lotteryProps {
    totalNumbersToBet: string;
 }
 
-export function LotteryModalities() {
+export function Lotteries() {
    const [selectedLottery, setSelectedLottery] = useState('');
    const [lotteriesData, setLotteriesData] = useState<lotteryProps[]>([]);
 
    useEffect(() => {
       axios
-         .get('src/data/lotteries.json')
+         .get('src/data/lotteries-data.json')
          .then((response) => setLotteriesData(response.data.lotteries))
          .catch((error) => console.error(error));
    }, []);
