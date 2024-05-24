@@ -42,15 +42,14 @@ export function LotteryButtons() {
 
          <h2>Modalidade do JSON</h2>
          <div>
-            {lotteriesData.map(
-               (lotteries) =>
-                  lotteries.name === selectedLottery && (
-                     <div key={lotteries.id}>
-                        <span>{`${lotteries.name} | `}</span>
-                        <span>{`${lotteries.totalNumbersAvailable} disponíveis | `}</span>
-                        <span>{`${lotteries.totalNumbersToBet} para apostar`}</span>
-                     </div>
-                  )
+            {lotteriesData.map((lottery) =>
+               lottery.name === selectedLottery ? (
+                  <div key={lottery.id}>
+                     <span>{`${lottery.name} | `}</span>
+                     <span>{`${lottery.totalNumbersAvailable} disponíveis | `}</span>
+                     <span>{`${lottery.totalNumbersToBet} para apostar`}</span>
+                  </div>
+               ) : null
             )}
          </div>
       </section>
