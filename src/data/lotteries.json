@@ -11,6 +11,12 @@
          "name": "Lotomania",
          "totalNumbersAvailable": "100",
          "totalNumbersToBet": "50"
+      },
+      {
+         "id": "3",
+         "name": "Quina",
+         "totalNumbersAvailable": "50",
+         "totalNumbersToBet": "5"
       }
    ]
 }

@@ -19,26 +19,25 @@ export function LotteryButtons() {
          .catch((error) => console.error(error));
    }, []);
 
-   function handleSelectedLottery(e: React.ChangeEvent<HTMLSelectElement>) {
+   function handleSelectedLottery(e: React.ChangeEvent<HTMLInputElement>) {
       setSelectedLottery(e.target.value);
    }
 
    return (
       <section>
          <form id='select-lottery'>
-            <label>
-               <select
-                  name='lotteries'
-                  id='lotteries'
-                  onChange={handleSelectedLottery}
-               >
-                  {lotteriesData.map((lotteries) => (
-                     <option key={lotteries.id} value={lotteries.name}>
-                        {lotteries.name}
-                     </option>
-                  ))}
-               </select>
-            </label>
+            {lotteriesData.map((lotteries) => (
+               <label key={lotteries.id}>
+                  <input
+                     type='radio'
+                     name='modalities'
+                     id={lotteries.name}
+                     value={lotteries.name}
+                     onChange={handleSelectedLottery}
+                  />
+                  {`${lotteries.name}`}
+               </label>
+            ))}
          </form>
 
          <h2>Modalidade do JSON</h2>
