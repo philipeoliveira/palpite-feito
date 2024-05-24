@@ -10,7 +10,7 @@ export function Bet() {
    const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
 
    useEffect(() => {
-      const generatedBet = sortNumbersAscending(generateBet('15', '25'));
+      const generatedBet = generateBet('15', '25');
       setRandonBet(generatedBet);
       setSelectedNumbers(generatedBet);
    }, []);
