@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumbersForBet';
 import { generateBet } from '../utils/generateBet';
 import sortNumbersAscending from '../utils/sortNumbersAscending';
-import { pluralizeNumber } from '../utils/handleStrings';
+import { pluralizeNumber } from '../utils/pluralizeNumber';
 
 export function Bet() {
    const [randonBet, setRandonBet] = useState<string[]>([]);

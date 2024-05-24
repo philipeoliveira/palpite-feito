@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-interface lotteriesProps {
+interface lotteryProps {
    id: string;
    name: string;
    totalNumbersAvailable: string;
    totalNumbersToBet: string;
 }
 
-export function LotteryButtons() {
+export function LotteryModalities() {
    const [selectedLottery, setSelectedLottery] = useState('');
-   const [lotteriesData, setLotteriesData] = useState<lotteriesProps[]>([]);
+   const [lotteriesData, setLotteriesData] = useState<lotteryProps[]>([]);
 
    useEffect(() => {
       axios
@@ -26,16 +26,16 @@ export function LotteryButtons() {
    return (
       <section>
          <form id='select-lottery'>
-            {lotteriesData.map((lotteries) => (
-               <label key={lotteries.id}>
+            {lotteriesData.map((lottery) => (
+               <label key={lottery.id}>
                   <input
                      type='radio'
-                     name='modalities'
-                     id={lotteries.name}
-                     value={lotteries.name}
+                     name='lottery'
+                     id={lottery.name}
+                     value={lottery.name}
                      onChange={handleSelectedLottery}
                   />
-                  {`${lotteries.name}`}
+                  {`${lottery.name}`}
                </label>
             ))}
          </form>

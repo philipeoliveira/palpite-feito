@@ -1,4 +1,4 @@
-import { addNumberZero } from '../utils/handleStrings';
+import { addNumberZero } from './addNumberZero';
 
 /**
  * @description Gera uma sequência numérica com todos os números disponíveis do jogo para a aposta.
