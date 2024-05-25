@@ -8,7 +8,7 @@ interface ModalityProps {
    totalNumbersToBet: string;
 }
 
-export function ModalityButtons() {
+export function ModalitiesButtons() {
    const [selectedModality, setSelectedModality] = useState('');
    const [modalities, setModalities] = useState<ModalityProps[]>([]);
 
