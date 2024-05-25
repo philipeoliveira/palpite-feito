@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumbersForBet';
 import { generateBet } from '../utils/generateBet';
 import sortNumbersAscending from '../utils/sortNumbersAscending';
-import { pluralizeNumber } from '../utils/pluralizeNumber';
+import { isSelectedNumberPlural } from '../utils/isSelectedNumberPlural';
 
 export function Bet() {
    const [randonBet, setRandonBet] = useState<string[]>([]);
@@ -55,7 +55,7 @@ export function Bet() {
             ))}
          </form>
 
-         <div>{pluralizeNumber(selectedNumbers.length)}</div>
+         <div>{isSelectedNumberPlural(selectedNumbers.length)}</div>
 
          <h2>Números sorteados aleatoriamente crescente:</h2>
          <div>

@@ -9,6 +9,6 @@
  * // Resultado esperado: "20 números"
  */
 
-export function pluralizeNumber(num: number): string {
+export function isSelectedNumberPlural(num: number): string {
    return num + ' número' + (num != 1 ? 's' : '');
 }
