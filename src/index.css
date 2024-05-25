@@ -91,10 +91,10 @@ button:focus-visible {
    cursor: pointer;
 }
 #bet-form input[type='checkbox'],
-#select-lottery input[type='radio'] {
+#select-modality input[type='radio'] {
    display: none;
 }
-#select-lottery {
+#select-modality {
    display: flex;
    align-items: center;
    justify-content: center;
@@ -104,7 +104,7 @@ button:focus-visible {
    border-radius: 10px;
    padding: 30px;
 }
-#select-lottery label {
+#select-modality label {
    border: 2px solid #fff;
    border-radius: 10px;
    cursor: pointer;
@@ -112,7 +112,7 @@ button:focus-visible {
    font-weight: bold;
 }
 .checked,
-#select-lottery label:hover {
+#select-modality label:hover {
    background-color: #fff;
    color: #252525;
    font-weight: bold;

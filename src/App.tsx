@@ -1,12 +1,12 @@
 import './App.css';
 import { Bet } from './components/Bet';
-import { Lotteries } from './components/Lotteries';
+import { ModalityButtons } from './components/ModalityButtons';
 
 function App() {
    return (
       <main>
          <h1>Checkbox com useState adicionando em array</h1>
-         <Lotteries />
+         <ModalityButtons />
          <Bet />
       </main>
    );
