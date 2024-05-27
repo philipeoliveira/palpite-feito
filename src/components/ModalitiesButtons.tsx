@@ -1,22 +1,15 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-
-interface ModalityProps {
-   id: string;
-   name: string;
-   totalNumbersAvailable: string;
-   totalNumbersToBet: string;
-}
+import { getModalities } from '../services/ModalitiesService';
+import { ModalityProps } from '../types/Modality';
 
 export function ModalitiesButtons() {
    const [selectedModality, setSelectedModality] = useState('');
    const [modalities, setModalities] = useState<ModalityProps[]>([]);
 
    useEffect(() => {
-      axios
-         .get('src/data/lottery-modalities.json')
-         .then((response) => setModalities(response.data.modalities))
-         .catch((error) => console.error(error));
+      getModalities()
+         .then((modalities) => setModalities(modalities))
+         .catch((err) => console.error(err));
    }, []);
 
    function handleSelectedModality(e: React.ChangeEvent<HTMLInputElement>) {
