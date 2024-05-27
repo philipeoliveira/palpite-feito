@@ -3,7 +3,7 @@ import { getModalities } from '../services/ModalitiesService';
 import { ModalityProps } from '../types/Modality';
 
 export function ModalitiesButtons() {
-   const [selectedModality, setSelectedModality] = useState('');
+   const [selectedModality, setSelectedModality] = useState<ModalityProps[]>([]);
    const [modalities, setModalities] = useState<ModalityProps[]>([]);
 
    useEffect(() => {
@@ -13,7 +13,9 @@ export function ModalitiesButtons() {
    }, []);
 
    function handleSelectedModality(e: React.ChangeEvent<HTMLInputElement>) {
-      setSelectedModality(e.target.value);
+      setSelectedModality(
+         modalities.filter((modality) => modality.name === e.target.value)
+      );
    }
 
    return (
@@ -35,15 +37,13 @@ export function ModalitiesButtons() {
 
          <h2>Modalidade do JSON</h2>
          <div>
-            {modalities.map((modality) =>
-               modality.name === selectedModality ? (
-                  <div key={modality.id}>
-                     <span>{`${modality.name} | `}</span>
-                     <span>{`${modality.totalNumbersAvailable} disponíveis | `}</span>
-                     <span>{`${modality.totalNumbersToBet} para apostar`}</span>
-                  </div>
-               ) : null
-            )}
+            {selectedModality.map((modality) => (
+               <div key={modality.id}>
+                  <span>{`${modality.name} | `}</span>
+                  <span>{`${modality.totalNumbersAvailable} disponíveis | `}</span>
+                  <span>{`${modality.totalNumbersToBet} para apostar`}</span>
+               </div>
+            ))}
          </div>
       </section>
    );
