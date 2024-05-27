@@ -6,11 +6,16 @@ import sortNumbersAscending from '../utils/sortNumbersAscending';
 import { isSelectedNumbersPlural } from '../utils/isSelectedNumbersPlural';
 
 export function Bet() {
+   const totalNumbersAvailable = '25';
+   const totalNumbersToBet = '15';
    const [randonBet, setRandonBet] = useState<string[]>([]);
    const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
 
    useEffect(() => {
-      const generatedBet = generateBet('15', '25');
+      const generatedBet = generateBet(
+         totalNumbersToBet,
+         totalNumbersAvailable
+      );
       setRandonBet(generatedBet);
       setSelectedNumbers(generatedBet);
    }, []);
@@ -19,7 +24,7 @@ export function Bet() {
       const selectedNumber = e.target.name;
 
       if (e.target.checked) {
-         selectedNumbers.length < 15
+         selectedNumbers.length < +totalNumbersToBet
             ? setSelectedNumbers((prevState) => [...prevState, selectedNumber])
             : alert('O limite de números para esta aposta foi atingido.');
       } else {
@@ -34,25 +39,27 @@ export function Bet() {
    return (
       <section>
          <form id='bet-form'>
-            {generateAvailableNumbersForBet('25').map((numString) => (
-               <label
-                  key={numString}
-                  className={
-                     selectedNumbers.includes(numString) ? 'checked' : ''
-                  }
-               >
-                  <input
-                     type='checkbox'
-                     name={`${numString}`}
-                     id={`number-${numString}`}
-                     onChange={handleSelectedNumber}
-                     checked={
-                        selectedNumbers.includes(numString) ? true : false
+            {generateAvailableNumbersForBet(totalNumbersAvailable).map(
+               (numString) => (
+                  <label
+                     key={numString}
+                     className={
+                        selectedNumbers.includes(numString) ? 'checked' : ''
                      }
-                  />
-                  {numString}
-               </label>
-            ))}
+                  >
+                     <input
+                        type='checkbox'
+                        name={`${numString}`}
+                        id={`number-${numString}`}
+                        onChange={handleSelectedNumber}
+                        checked={
+                           selectedNumbers.includes(numString) ? true : false
+                        }
+                     />
+                     {numString}
+                  </label>
+               )
+            )}
          </form>
 
          <div>{isSelectedNumbersPlural(selectedNumbers.length)}</div>
