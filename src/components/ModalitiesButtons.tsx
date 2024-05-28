@@ -4,6 +4,8 @@ import { ModalityProps } from '../types/Modality';
 import { getModalities } from '../services/ModalitiesService';
 import { ModalityContext } from '../contexts/ModalityContext';
 
+import { lowercaseWithoutAccents } from '../utils/lowercaseWithoutAccents';
+
 export function ModalitiesButtons() {
    const [modalities, setModalities] = useState<ModalityProps[]>([]);
    const { selectedModality, setSelectedModality } = useContext(ModalityContext);
@@ -32,7 +34,7 @@ export function ModalitiesButtons() {
                   <input
                      type='radio'
                      name='modality'
-                     id={modality.name}
+                     id={lowercaseWithoutAccents(modality.name)}
                      value={modality.name}
                      onChange={handleSelectedModality}
                   />
