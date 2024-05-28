@@ -1,8 +1,9 @@
 import { createContext, useState } from 'react';
+import { ModalityProps } from '../types/Modality';
 
 interface ModalityContextProps {
-   selectedModality: string;
-   setSelectedModality: (modality: string) => void;
+   selectedModality: ModalityProps;
+   setSelectedModality: (modality: ModalityProps) => void;
 }
 
 interface ModalityProviderProps {
@@ -12,12 +13,15 @@ interface ModalityProviderProps {
 export const ModalityContext = createContext({} as ModalityContextProps);
 
 export function ModalityProvider({ children }: ModalityProviderProps) {
-   const [selectedModality, setSelectedModality] = useState('Quina');
+   const [selectedModality, setSelectedModality] = useState<ModalityProps>({
+      id: '1',
+      name: 'Lotofácil',
+      totalNumbersAvailable: '25',
+      totalNumbersToBet: '15',
+   });
 
    return (
-      <ModalityContext.Provider
-         value={{ selectedModality, setSelectedModality }}
-      >
+      <ModalityContext.Provider value={{ selectedModality, setSelectedModality }}>
          {children}
       </ModalityContext.Provider>
    );

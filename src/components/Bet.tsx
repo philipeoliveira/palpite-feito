@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+
+import { ModalityContext } from '../contexts/ModalityContext';
 
 import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumbersForBet';
 import { generateBet } from '../utils/generateBet';
@@ -6,19 +8,17 @@ import sortNumbersAscending from '../utils/sortNumbersAscending';
 import { isSelectedNumbersPlural } from '../utils/isSelectedNumbersPlural';
 
 export function Bet() {
-   const totalNumbersAvailable = '25';
-   const totalNumbersToBet = '15';
+   const { selectedModality } = useContext(ModalityContext);
+   const { totalNumbersAvailable, totalNumbersToBet } = selectedModality;
+
    const [randonBet, setRandonBet] = useState<string[]>([]);
    const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
 
    useEffect(() => {
-      const generatedBet = generateBet(
-         totalNumbersToBet,
-         totalNumbersAvailable
-      );
+      const generatedBet = generateBet(totalNumbersToBet, totalNumbersAvailable);
       setRandonBet(generatedBet);
       setSelectedNumbers(generatedBet);
-   }, []);
+   }, [totalNumbersAvailable, totalNumbersToBet]);
 
    function handleSelectedNumber(e: React.ChangeEvent<HTMLInputElement>) {
       const selectedNumber = e.target.name;
@@ -29,9 +29,7 @@ export function Bet() {
             : alert('O limite de números para esta aposta foi atingido.');
       } else {
          setSelectedNumbers((prevState) => {
-            return [
-               ...prevState.filter((numString) => numString !== selectedNumber),
-            ];
+            return [...prevState.filter((numString) => numString !== selectedNumber)];
          });
       }
    }
@@ -39,27 +37,24 @@ export function Bet() {
    return (
       <section>
          <form id='bet-form'>
-            {generateAvailableNumbersForBet(totalNumbersAvailable).map(
-               (numString) => (
+            <fieldset>
+               <legend>{selectedModality.name}</legend>
+               {generateAvailableNumbersForBet(totalNumbersAvailable).map((numString) => (
                   <label
                      key={numString}
-                     className={
-                        selectedNumbers.includes(numString) ? 'checked' : ''
-                     }
+                     className={selectedNumbers.includes(numString) ? 'checked' : ''}
                   >
                      <input
                         type='checkbox'
                         name={`${numString}`}
                         id={`number-${numString}`}
                         onChange={handleSelectedNumber}
-                        checked={
-                           selectedNumbers.includes(numString) ? true : false
-                        }
+                        checked={selectedNumbers.includes(numString) ? true : false}
                      />
                      {numString}
                   </label>
-               )
-            )}
+               ))}
+            </fieldset>
          </form>
 
          <div>{isSelectedNumbersPlural(selectedNumbers.length)}</div>

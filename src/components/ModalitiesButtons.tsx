@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
-import { getModalities } from '../services/ModalitiesService';
+import { useState, useEffect, useContext } from 'react';
+
 import { ModalityProps } from '../types/Modality';
+import { getModalities } from '../services/ModalitiesService';
+import { ModalityContext } from '../contexts/ModalityContext';
 
 export function ModalitiesButtons() {
-   const [selectedModality, setSelectedModality] = useState<ModalityProps[]>([]);
    const [modalities, setModalities] = useState<ModalityProps[]>([]);
+   const { selectedModality, setSelectedModality } = useContext(ModalityContext);
 
    useEffect(() => {
       getModalities()
@@ -13,9 +15,13 @@ export function ModalitiesButtons() {
    }, []);
 
    function handleSelectedModality(e: React.ChangeEvent<HTMLInputElement>) {
-      setSelectedModality(
-         modalities.filter((modality) => modality.name === e.target.value)
-      );
+      const nameSelectedModality = e.target.value;
+
+      const modality = modalities.find(
+         (modality) => modality.name === nameSelectedModality
+      ) as ModalityProps;
+
+      setSelectedModality(modality);
    }
 
    return (
@@ -37,13 +43,11 @@ export function ModalitiesButtons() {
 
          <h2>Modalidade do JSON</h2>
          <div>
-            {selectedModality.map((modality) => (
-               <div key={modality.id}>
-                  <span>{`${modality.name} | `}</span>
-                  <span>{`${modality.totalNumbersAvailable} disponíveis | `}</span>
-                  <span>{`${modality.totalNumbersToBet} para apostar`}</span>
-               </div>
-            ))}
+            <div key={selectedModality.id}>
+               <span>{`${selectedModality.name} | `}</span>
+               <span>{`${selectedModality.totalNumbersAvailable} disponíveis | `}</span>
+               <span>{`${selectedModality.totalNumbersToBet} para apostar`}</span>
+            </div>
          </div>
       </section>
    );

@@ -71,7 +71,7 @@ button:focus-visible {
    }
 }
 
-#bet-form {
+#bet-form fieldset {
    display: flex;
    align-items: center;
    flex-wrap: wrap;
@@ -79,6 +79,11 @@ button:focus-visible {
    border: 1px solid #444;
    border-radius: 10px;
    padding: 30px;
+}
+#bet-form legend {
+   font-size: 1.6rem;
+   font-weight: bold;
+   padding: 0 20px;
 }
 #bet-form label {
    display: flex;

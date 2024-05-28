@@ -1,14 +1,17 @@
 import './App.css';
 import { Bet } from './components/Bet';
 import { ModalitiesButtons } from './components/ModalitiesButtons';
+import { ModalityProvider } from './contexts/ModalityContext';
 
 function App() {
    return (
-      <main>
-         <h1>Checkbox com array</h1>
-         <ModalitiesButtons />
-         <Bet />
-      </main>
+      <ModalityProvider>
+         <main>
+            <h1>Checkbox com array</h1>
+            <ModalitiesButtons />
+            <Bet />
+         </main>
+      </ModalityProvider>
    );
 }
 
