@@ -11,14 +11,16 @@ import { addNumberZero } from './addNumberZero';
  * // Resultado esperado: ["01", "02", "03", "04", "05"]
  */
 
-export function generateAvailableNumbersForBet(
-   totalNumbersAvailable: string
-): string[] {
+export function generateAvailableNumbersForBet(totalNumbersAvailable: string): string[] {
    const availableNumbers: string[] = [];
 
    for (let i = 1; i <= +totalNumbersAvailable; i++) {
-      const numString = i.toString();
-      availableNumbers.push(addNumberZero(numString));
+      let numString = addNumberZero(i.toString());
+
+      // Lotomania
+      if (numString === '100') numString = numString.slice(-2);
+
+      availableNumbers.push(numString);
    }
 
    return availableNumbers;

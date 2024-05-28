@@ -22,10 +22,11 @@ export function generateBet(
 
    if (totalNumsAvailable > totalNumsToGenerate) {
       while (bet.length < totalNumsToGenerate) {
-         const randomNumber = Math.floor(
-            Math.random() * totalNumsAvailable + 1
-         );
-         const randomNumString = addNumberZero(randomNumber.toString());
+         const randomNumber = Math.floor(Math.random() * totalNumsAvailable + 1);
+         let randomNumString = addNumberZero(randomNumber.toString());
+
+         // Lotomania
+         if (randomNumString === '100') randomNumString = randomNumString.slice(-2);
 
          if (!bet.includes(randomNumString)) {
             bet.push(randomNumString);
