@@ -14,10 +14,14 @@ export function Bet() {
    const [randonBet, setRandonBet] = useState<string[]>([]);
    const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
 
-   useEffect(() => {
+   function createBet(totalNumbersAvailable: string, totalNumbersToBet: string) {
       const generatedBet = generateBet(totalNumbersToBet, totalNumbersAvailable);
       setRandonBet(generatedBet);
       setSelectedNumbers(generatedBet);
+   }
+
+   useEffect(() => {
+      createBet(totalNumbersAvailable, totalNumbersToBet);
    }, [totalNumbersAvailable, totalNumbersToBet]);
 
    function handleSelectedNumber(e: React.ChangeEvent<HTMLInputElement>) {
@@ -36,6 +40,10 @@ export function Bet() {
 
    return (
       <section>
+         <button onClick={() => createBet(totalNumbersAvailable, totalNumbersToBet)}>
+            Recriar palpite
+         </button>
+
          <form id='bet-form'>
             <fieldset>
                <legend>{selectedModality.name}</legend>
@@ -59,7 +67,7 @@ export function Bet() {
 
          <div>{isSelectedNumbersPlural(selectedNumbers.length)}</div>
 
-         <h2>Números sorteados aleatoriamente crescente:</h2>
+         <h2>Números sorteados aleatoriamente:</h2>
          <div>
             {randonBet.map((numString) => (
                <span key={numString}>{`${numString} `}</span>

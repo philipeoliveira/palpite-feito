@@ -1,4 +1,3 @@
-import './App.css';
 import { Bet } from './components/Bet';
 import { ModalitiesButtons } from './components/ModalitiesButtons';
 import { ModalityProvider } from './contexts/ModalityContext';
