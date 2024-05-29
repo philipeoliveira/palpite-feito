@@ -6,6 +6,7 @@ import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumber
 import { generateBet } from '../utils/generateBet';
 import sortNumbersAscending from '../utils/sortNumbersAscending';
 import { isSelectedNumbersPlural } from '../utils/isSelectedNumbersPlural';
+import { countEvenAndOdd } from '../utils/countEvenAndOdd';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
@@ -65,7 +66,10 @@ export function Bet() {
             </fieldset>
          </form>
 
-         <div>{isSelectedNumbersPlural(selectedNumbers.length)}</div>
+         <div>
+            <p>{isSelectedNumbersPlural(selectedNumbers.length)}</p>
+            <p>{countEvenAndOdd(selectedNumbers)}</p>
+         </div>
 
          <h2>Números sorteados aleatoriamente:</h2>
          <div>
