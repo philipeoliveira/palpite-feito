@@ -5,7 +5,7 @@ import { ModalityContext } from '../contexts/ModalityContext';
 import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumbersForBet';
 import { generateBet } from '../utils/generateBet';
 import sortNumbersAscending from '../utils/sortNumbersAscending';
-import { isSelectedNumbersPlural } from '../utils/isSelectedNumbersPlural';
+import { getSingularOrPluralWord } from '../utils/getSingularOrPluralWord';
 import { countEvenAndOdd } from '../utils/countEvenAndOdd';
 
 export function Bet() {
@@ -67,7 +67,16 @@ export function Bet() {
          </form>
 
          <div>
-            <p>{isSelectedNumbersPlural(selectedNumbers.length)}</p>
+            <p>
+               {`${selectedNumbers.length}
+               ${getSingularOrPluralWord(selectedNumbers.length, 'número', 'números')}
+               ${getSingularOrPluralWord(
+                  selectedNumbers.length,
+                  'selecionado',
+                  'selecionados'
+               )}`}
+            </p>
+
             <p>{countEvenAndOdd(selectedNumbers)}</p>
          </div>
 

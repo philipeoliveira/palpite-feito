@@ -9,6 +9,8 @@
  * // Resultado esperado: 3 pares e 2 ímpares
  */
 
+import { getSingularOrPluralWord } from './getSingularOrPluralWord';
+
 export function countEvenAndOdd(selectedNumbers: string[]): string {
    let evenCount = 0;
    let oddCount = 0;
@@ -21,5 +23,10 @@ export function countEvenAndOdd(selectedNumbers: string[]): string {
       }
    }
 
-   return `${evenCount} pares e ${oddCount} ímpares`;
+   return `
+      ${evenCount}
+      ${getSingularOrPluralWord(evenCount, 'par', 'pares')} e 
+      ${oddCount}
+      ${getSingularOrPluralWord(oddCount, 'ímpar', 'ímpares')}
+   `;
 }
