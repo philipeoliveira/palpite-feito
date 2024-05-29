@@ -42,13 +42,14 @@ export function ModalitiesButtons() {
                </label>
             ))}
          </form>
-
          <h2>Modalidade escolhida do JSON</h2>
-         <h4 key={selectedModality.id}>
-            <span>{`${selectedModality.name} | `}</span>
-            <span>{`${selectedModality.totalNumbersAvailable} disponíveis | `}</span>
-            <span>{`${selectedModality.totalNumbersToBet} para apostar`}</span>
-         </h4>
+         {selectedModality && (
+            <h4 key={selectedModality.id}>
+               <span>{`${selectedModality.name} | `}</span>
+               <span>{`${selectedModality.totalNumbersAvailable} disponíveis | `}</span>
+               <span>{`${selectedModality.totalNumbersToBet} para apostar`}</span>
+            </h4>
+         )}
       </section>
    );
 }
