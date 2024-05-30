@@ -3,10 +3,10 @@
  * @param {string} text String -> Texto para ser formatado.
  * @return {string} String -> Texto formatado sem acentos e com letras minúsculas.
  * @example
- * // Se a palavra Mega-Sena for recebida como argumento da função:
- * const text = lowercaseWithoutAccents("Mega-Sena");
+ * // Se a palavra Lotofácil for recebida como argumento da função:
+ * const text = lowercaseWithoutAccents("Lotofácil");
  * console.log(text);
- * // Resultado esperado: "mega-sena"
+ * // Resultado esperado: "lotofacil"
  */
 
 export function lowercaseWithoutAccents(text: string): string {

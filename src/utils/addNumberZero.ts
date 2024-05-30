@@ -10,7 +10,7 @@
  */
 
 export function addNumberZero(numString: string): string {
-   if (+numString <= 9) {
+   if (+numString >= 1 && +numString <= 9) {
       return '0' + numString;
    }
    return numString;

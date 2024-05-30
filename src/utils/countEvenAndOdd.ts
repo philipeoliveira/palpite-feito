@@ -17,9 +17,9 @@ export function countEvenAndOdd(selectedNumbers: string[]): string {
 
    for (const number of selectedNumbers) {
       if (+number % 2 === 0) {
-         evenCount = evenCount + 1;
+         evenCount++;
       } else {
-         oddCount = oddCount + 1;
+         oddCount++;
       }
    }
 

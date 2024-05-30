@@ -7,6 +7,7 @@ import { generateBet } from '../utils/generateBet';
 import sortNumbersAscending from '../utils/sortNumbersAscending';
 import { getSingularOrPluralWord } from '../utils/getSingularOrPluralWord';
 import { countEvenAndOdd } from '../utils/countEvenAndOdd';
+import { countPrimeNumbers } from '../utils/countPrimeNumbers';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
@@ -76,8 +77,8 @@ export function Bet() {
                   'selecionados'
                )}`}
             </p>
-
             <p>{countEvenAndOdd(selectedNumbers)}</p>
+            <p>{countPrimeNumbers(selectedNumbers)}</p>
          </div>
 
          <h2>Números sorteados aleatoriamente:</h2>
