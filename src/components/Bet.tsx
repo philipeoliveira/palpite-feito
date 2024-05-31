@@ -8,6 +8,7 @@ import sortNumbersAscending from '../utils/sortNumbersAscending';
 import { getSingularOrPluralWord } from '../utils/getSingularOrPluralWord';
 import { countEvenAndOdd } from '../utils/countEvenAndOdd';
 import { countPrimeNumbers } from '../utils/countPrimeNumbers';
+import { countHalfBet } from '../utils/countHalfBet';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
@@ -79,6 +80,7 @@ export function Bet() {
             </p>
             <p>{countEvenAndOdd(selectedNumbers)}</p>
             <p>{countPrimeNumbers(selectedNumbers)}</p>
+            <p>{countHalfBet(totalNumbersAvailable, selectedNumbers)}</p>
          </div>
 
          <h2>Números sorteados aleatoriamente:</h2>
