@@ -9,6 +9,7 @@ import { getSingularOrPluralWord } from '../utils/getSingularOrPluralWord';
 import { countEvenAndOdd } from '../utils/countEvenAndOdd';
 import { countPrimeNumbers } from '../utils/countPrimeNumbers';
 import { countHalfBet } from '../utils/countHalfBet';
+import { countSelectedFibonacci } from '../utils/countSelectedFibonacci';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
@@ -81,6 +82,7 @@ export function Bet() {
             <p>{countEvenAndOdd(selectedNumbers)}</p>
             <p>{countPrimeNumbers(selectedNumbers)}</p>
             <p>{countHalfBet(totalNumbersAvailable, selectedNumbers)}</p>
+            <p>{countSelectedFibonacci(totalNumbersAvailable, selectedNumbers)}</p>
          </div>
 
          <h2>Números sorteados aleatoriamente:</h2>
