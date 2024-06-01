@@ -13,7 +13,7 @@ import { countSelectedFibonacci } from '../utils/countSelectedFibonacci';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
-   const { totalNumbersAvailable, totalNumbersToBet } = selectedModality;
+   const { totalNumbersAvailable, totalNumbersToBet, countHalf } = selectedModality;
 
    const [randonBet, setRandonBet] = useState<string[]>([]);
    const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
@@ -81,7 +81,7 @@ export function Bet() {
             </p>
             <p>{countEvenAndOdd(selectedNumbers)}</p>
             <p>{countPrimeNumbers(selectedNumbers)}</p>
-            <p>{countHalfBet(totalNumbersAvailable, selectedNumbers)}</p>
+            <p>{countHalf && countHalfBet(totalNumbersAvailable, selectedNumbers)}</p>
             <p>{countSelectedFibonacci(totalNumbersAvailable, selectedNumbers)}</p>
          </div>
 

@@ -3,4 +3,5 @@ export interface ModalityProps {
    name: string;
    totalNumbersAvailable: string;
    totalNumbersToBet: string;
+   countHalf: boolean;
 }
