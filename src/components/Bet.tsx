@@ -43,33 +43,39 @@ export function Bet() {
    }
 
    return (
-      <section>
-         <button onClick={() => createBet(totalNumbersAvailable, totalNumbersToBet)}>
-            Recriar palpite
-         </button>
+      <section id='bet-container'>
+         <div id='bet'>
+            <form id='bet-form'>
+               <fieldset>
+                  <legend>{selectedModality.name}</legend>
+                  {generateAvailableNumbersForBet(totalNumbersAvailable).map(
+                     (numString) => (
+                        <label
+                           key={numString}
+                           className={
+                              selectedNumbers.includes(numString) ? 'checked' : ''
+                           }
+                        >
+                           <input
+                              type='checkbox'
+                              name={`${numString}`}
+                              id={`number-${numString}`}
+                              onChange={handleSelectedNumber}
+                              checked={selectedNumbers.includes(numString) ? true : false}
+                           />
+                           {numString}
+                        </label>
+                     )
+                  )}
+               </fieldset>
+            </form>
 
-         <form id='bet-form'>
-            <fieldset>
-               <legend>{selectedModality.name}</legend>
-               {generateAvailableNumbersForBet(totalNumbersAvailable).map((numString) => (
-                  <label
-                     key={numString}
-                     className={selectedNumbers.includes(numString) ? 'checked' : ''}
-                  >
-                     <input
-                        type='checkbox'
-                        name={`${numString}`}
-                        id={`number-${numString}`}
-                        onChange={handleSelectedNumber}
-                        checked={selectedNumbers.includes(numString) ? true : false}
-                     />
-                     {numString}
-                  </label>
-               ))}
-            </fieldset>
-         </form>
+            <button onClick={() => createBet(totalNumbersAvailable, totalNumbersToBet)}>
+               Recriar palpite
+            </button>
+         </div>
 
-         <div>
+         <div id='bet-infos'>
             <p>
                {`${selectedNumbers.length}
                ${getSingularOrPluralWord(selectedNumbers.length, 'número', 'números')}
@@ -83,27 +89,25 @@ export function Bet() {
             <p>{countPrimeNumbers(selectedNumbers)}</p>
             <p>{countHalf && countHalfBet(totalNumbersAvailable, selectedNumbers)}</p>
             <p>{countSelectedFibonacci(totalNumbersAvailable, selectedNumbers)}</p>
-         </div>
 
-         <h2>Números sorteados aleatoriamente:</h2>
-         <div>
-            {randonBet.map((numString) => (
-               <span key={numString}>{`${numString} `}</span>
-            ))}
-         </div>
-
-         <h2>Números na ordem escolhida:</h2>
-         <div>
-            {selectedNumbers.map((numString) => (
-               <span key={numString}>{`${numString} `}</span>
-            ))}
-         </div>
-
-         <h2>Números na ordem crescente:</h2>
-         <div>
-            {sortNumbersAscending(selectedNumbers).map((numString) => (
-               <span key={numString}>{`${numString} `}</span>
-            ))}
+            <h2>Números sorteados aleatoriamente:</h2>
+            <div>
+               {randonBet.map((numString) => (
+                  <span key={numString}>{`${numString} `}</span>
+               ))}
+            </div>
+            <h2>Números na ordem escolhida:</h2>
+            <div>
+               {selectedNumbers.map((numString) => (
+                  <span key={numString}>{`${numString} `}</span>
+               ))}
+            </div>
+            <h2>Números na ordem crescente:</h2>
+            <div>
+               {sortNumbersAscending(selectedNumbers).map((numString) => (
+                  <span key={numString}>{`${numString} `}</span>
+               ))}
+            </div>
          </div>
       </section>
    );

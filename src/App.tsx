@@ -5,11 +5,14 @@ import { ModalityProvider } from './contexts/ModalityContext';
 function App() {
    return (
       <ModalityProvider>
-         <main>
-            <h1>Checkbox com array</h1>
-            <ModalitiesButtons />
-            <Bet />
-         </main>
+         <>
+            <main>
+               <h1>Palpite feito</h1>
+               <ModalitiesButtons />
+               <Bet />
+            </main>
+            <footer>Desenvolvido por: Philipe Oliveira</footer>
+         </>
       </ModalityProvider>
    );
 }
