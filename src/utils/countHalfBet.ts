@@ -27,6 +27,6 @@ export function countHalfBet(
    });
 
    return `
-      ${countBeforeHalf} antes e ${countAfterHalf} depois (metade até ${halfNumbersAvailable})
+      ${countBeforeHalf} antes e ${countAfterHalf} depois do nº ${halfNumbersAvailable}
    `;
 }
