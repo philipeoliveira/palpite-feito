@@ -7,7 +7,7 @@
  * // Suponha que o total de números disponíveis são 80 e
  * // os números selecionados da aposta forem: 01, 25, 56, 66, 79.
  * console.log(countHalfBet("80", ["01", "25", "56", "66", "79"]));
- * // Resultado esperado: 2 antes e 3 depois (metade até 40)
+ * // Resultado esperado: 2 antes e 3 depois do nº 40
  */
 
 export function countHalfBet(
