@@ -29,8 +29,7 @@ export function countSelectedFibonacci(
    const selectedFibonacci = Array.from(intersection);
 
    return `
-      ${selectedFibonacci.length}/
-      ${availableAndUniqueFibonacci.size} da sequência de Fibonacci`;
+      ${selectedFibonacci.length} da sequência de Fibonacci`;
 }
 
 /** --------------------------------------------------------------------------- */
