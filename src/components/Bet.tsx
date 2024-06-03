@@ -10,10 +10,11 @@ import { countEvenAndOdd } from '../utils/countEvenAndOdd';
 import { countPrimeNumbers } from '../utils/countPrimeNumbers';
 import { countHalfBet } from '../utils/countHalfBet';
 import { countSelectedFibonacci } from '../utils/countSelectedFibonacci';
+import { countMultiplesOfThree } from '../utils/countMultiplesOfThree';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
-   const { totalNumbersAvailable, totalNumbersToBet, countHalf } = selectedModality;
+   const { totalNumbersAvailable, totalNumbersToBet } = selectedModality;
 
    const [randonBet, setRandonBet] = useState<string[]>([]);
    const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
@@ -87,7 +88,8 @@ export function Bet() {
             </p>
             <p>{countEvenAndOdd(selectedNumbers)}</p>
             <p>{countPrimeNumbers(selectedNumbers)}</p>
-            <p>{countHalf && countHalfBet(totalNumbersAvailable, selectedNumbers)}</p>
+            <p>{countMultiplesOfThree(selectedNumbers)}</p>
+            <p>{countHalfBet(totalNumbersAvailable, selectedNumbers)}</p>
             <p>{countSelectedFibonacci(totalNumbersAvailable, selectedNumbers)}</p>
 
             <h2>Números sorteados aleatoriamente:</h2>
