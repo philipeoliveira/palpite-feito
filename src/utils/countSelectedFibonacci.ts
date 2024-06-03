@@ -7,7 +7,7 @@
  * // Suponha que o total de números disponíveis são 80 e
  * // os números selecionados da aposta forem: 01, 25, 56, 66, 79.
  * console.log(countSelectedFibonacci("80", ["01", "25", "56", "66", "79"]));
- * // Resultado esperado: 1/ 9 da sequência de Fibonacci
+ * // Resultado esperado: 1 da sequência de Fibonacci
  */
 
 import { addNumberZero } from './addNumberZero';
