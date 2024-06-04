@@ -22,7 +22,7 @@ export function countMultiplesOfThree(selectedNumbers: string[]): string {
 
    return `
       ${count}
-      ${getSingularOrPluralWord(count, 'múltiplo de 3', 'múltiplos de 3')}
+      ${getSingularOrPluralWord(count, 'múltiplo', 'múltiplos')} de 3
    `;
 }
 
