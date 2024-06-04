@@ -47,7 +47,7 @@ export function ModalitiesButtons() {
             <h4 key={selectedModality.id}>
                <span>{`${selectedModality.name} | `}</span>
                <span>{`${selectedModality.totalNumbersAvailable} disponíveis | `}</span>
-               <span>{`${selectedModality.totalNumbersToBet} para apostar`}</span>
+               <span>{`${selectedModality.minNumbersToBet} para apostar`}</span>
             </h4>
          )}
       </section>

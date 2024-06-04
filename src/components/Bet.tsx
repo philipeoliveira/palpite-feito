@@ -14,26 +14,27 @@ import { countMultiplesOfThree } from '../utils/countMultiplesOfThree';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
-   const { totalNumbersAvailable, totalNumbersToBet, countHalf } = selectedModality;
+   const { totalNumbersAvailable, minNumbersToBet, maxNumbersToBet, countHalf } =
+      selectedModality;
 
    const [randonBet, setRandonBet] = useState<string[]>([]);
    const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
 
-   function createBet(totalNumbersAvailable: string, totalNumbersToBet: string) {
-      const generatedBet = generateBet(totalNumbersToBet, totalNumbersAvailable);
+   function createBet(totalNumbersAvailable: string, minNumbersToBet: string) {
+      const generatedBet = generateBet(minNumbersToBet, totalNumbersAvailable);
       setRandonBet(generatedBet);
       setSelectedNumbers(generatedBet);
    }
 
    useEffect(() => {
-      createBet(totalNumbersAvailable, totalNumbersToBet);
-   }, [totalNumbersAvailable, totalNumbersToBet]);
+      createBet(totalNumbersAvailable, minNumbersToBet);
+   }, [totalNumbersAvailable, minNumbersToBet]);
 
    function handleSelectedNumber(e: React.ChangeEvent<HTMLInputElement>) {
       const selectedNumber = e.target.name;
 
       if (e.target.checked) {
-         selectedNumbers.length < +totalNumbersToBet
+         selectedNumbers.length < +maxNumbersToBet
             ? setSelectedNumbers((prevState) => [...prevState, selectedNumber])
             : alert('O limite de números para esta aposta foi atingido.');
       } else {
@@ -71,7 +72,7 @@ export function Bet() {
                </fieldset>
             </form>
 
-            <button onClick={() => createBet(totalNumbersAvailable, totalNumbersToBet)}>
+            <button onClick={() => createBet(totalNumbersAvailable, minNumbersToBet)}>
                Recriar palpite
             </button>
          </div>
