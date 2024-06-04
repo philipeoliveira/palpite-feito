@@ -1,4 +1,5 @@
 import { Bet } from './components/Bet';
+import { Header } from './components/Header';
 import { ModalitiesButtons } from './components/ModalitiesButtons';
 import { ModalityProvider } from './contexts/ModalityContext';
 
@@ -6,8 +7,10 @@ function App() {
    return (
       <ModalityProvider>
          <>
+            <header>
+               <Header />
+            </header>
             <main>
-               <h1>Palpite feito</h1>
                <ModalitiesButtons />
                <Bet />
             </main>

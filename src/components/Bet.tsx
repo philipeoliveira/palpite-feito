@@ -46,26 +46,31 @@ export function Bet() {
          <div id='bet'>
             <form id='bet-form'>
                <fieldset>
-                  <legend>{selectedModality.name}</legend>
-                  {generateAvailableNumbersForBet(totalNumbersAvailable).map(
-                     (numString) => (
-                        <label
-                           key={numString}
-                           className={
-                              selectedNumbers.includes(numString) ? 'checked' : ''
-                           }
-                        >
-                           <input
-                              type='checkbox'
-                              name={`${numString}`}
-                              id={`number-${numString}`}
-                              onChange={handleSelectedNumber}
-                              checked={selectedNumbers.includes(numString) ? true : false}
-                           />
-                           {numString}
-                        </label>
-                     )
-                  )}
+                  <legend>Palpite da {selectedModality.name}</legend>
+                  <p>Dezenas para um palpite de jogo da {selectedModality.name}</p>
+                  <div id='bet-numbers'>
+                     {generateAvailableNumbersForBet(totalNumbersAvailable).map(
+                        (numString) => (
+                           <label
+                              key={numString}
+                              className={
+                                 selectedNumbers.includes(numString) ? 'checked' : ''
+                              }
+                           >
+                              <input
+                                 type='checkbox'
+                                 name={`${numString}`}
+                                 id={`number-${numString}`}
+                                 onChange={handleSelectedNumber}
+                                 checked={
+                                    selectedNumbers.includes(numString) ? true : false
+                                 }
+                              />
+                              {numString}
+                           </label>
+                        )
+                     )}
+                  </div>
                </fieldset>
             </form>
 
