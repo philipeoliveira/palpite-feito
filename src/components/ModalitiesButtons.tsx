@@ -8,7 +8,7 @@ import { lowercaseWithoutAccents } from '../utils/lowercaseWithoutAccents';
 
 export function ModalitiesButtons() {
    const [modalities, setModalities] = useState<ModalityProps[]>([]);
-   const { selectedModality, setSelectedModality } = useContext(ModalityContext);
+   const { setSelectedModality } = useContext(ModalityContext);
 
    useEffect(() => {
       getModalities()
@@ -42,14 +42,6 @@ export function ModalitiesButtons() {
                </label>
             ))}
          </form>
-         <h2>Modalidade escolhida do JSON</h2>
-         {selectedModality && (
-            <h4 key={selectedModality.id}>
-               <span>{`${selectedModality.name} | `}</span>
-               <span>{`${selectedModality.totalNumbersAvailable} disponíveis | `}</span>
-               <span>{`${selectedModality.minNumbersToBet} para apostar`}</span>
-            </h4>
-         )}
       </section>
    );
 }

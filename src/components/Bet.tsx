@@ -4,7 +4,6 @@ import { ModalityContext } from '../contexts/ModalityContext';
 
 import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumbersForBet';
 import { generateBet } from '../utils/generateBet';
-import sortNumbersAscending from '../utils/sortNumbersAscending';
 import { getSingularOrPluralWord } from '../utils/getSingularOrPluralWord';
 import { countEvenAndOdd } from '../utils/countEvenAndOdd';
 import { countPrimeNumbers } from '../utils/countPrimeNumbers';
@@ -17,12 +16,10 @@ export function Bet() {
    const { totalNumbersAvailable, minNumbersToBet, maxNumbersToBet, countHalf } =
       selectedModality;
 
-   const [randonBet, setRandonBet] = useState<string[]>([]);
    const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
 
    function createBet(totalNumbersAvailable: string, minNumbersToBet: string) {
       const generatedBet = generateBet(minNumbersToBet, totalNumbersAvailable);
-      setRandonBet(generatedBet);
       setSelectedNumbers(generatedBet);
    }
 
@@ -92,25 +89,6 @@ export function Bet() {
             <p>{countMultiplesOfThree(selectedNumbers)}</p>
             <p>{countHalf && countHalfBet(totalNumbersAvailable, selectedNumbers)}</p>
             <p>{countSelectedFibonacci(totalNumbersAvailable, selectedNumbers)}</p>
-
-            <h2>Números sorteados aleatoriamente:</h2>
-            <div>
-               {randonBet.map((numString) => (
-                  <span key={numString}>{`${numString} `}</span>
-               ))}
-            </div>
-            <h2>Números na ordem escolhida:</h2>
-            <div>
-               {selectedNumbers.map((numString) => (
-                  <span key={numString}>{`${numString} `}</span>
-               ))}
-            </div>
-            <h2>Números na ordem crescente:</h2>
-            <div>
-               {sortNumbersAscending(selectedNumbers).map((numString) => (
-                  <span key={numString}>{`${numString} `}</span>
-               ))}
-            </div>
          </div>
       </section>
    );
