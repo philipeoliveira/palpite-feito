@@ -27,16 +27,20 @@ export function ModalitiesButtons() {
    }
 
    return (
-      <section>
-         <form id='select-modality'>
+      <section className='px-7'>
+         <form id='select-modality' className='flex gap-5'>
             {modalities.map((modality) => (
-               <label key={modality.id}>
+               <label
+                  key={modality.id}
+                  className='text-xl text-green-300 border border-green-700 py-5 px-8 rounded cursor-pointer duration-200 hover:border-green-300 hover:-translate-y-[2px] hover:duration-200'
+               >
                   <input
                      type='radio'
                      name='modality'
                      id={lowercaseWithoutAccents(modality.name)}
                      value={modality.name}
                      onChange={handleSelectedModality}
+                     className='hidden'
                   />
                   {`${modality.name}`}
                </label>

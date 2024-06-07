@@ -1,148 +1,24 @@
-* {
-   box-sizing: border-box;
-   list-style: none;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-   line-height: 1.5;
-   font-weight: 400;
-
-   color-scheme: light dark;
-   color: rgba(255, 255, 255, 0.87);
-   background-color: #252525;
-
-   font-synthesis: none;
-   text-rendering: optimizeLegibility;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-   font-weight: 500;
-   color: #646cff;
-   text-decoration: inherit;
-}
-a:hover {
-   color: #535bf2;
-}
-
-body {
-   display: flex;
-   justify-content: center;
-   margin: 0 auto;
-   min-height: 100vh;
-   text-align: center;
-   padding: 0 2rem;
-}
-
-h1 {
-   font-size: 3.2em;
-   line-height: 1.1;
-}
-
-form {
-   margin: 30px 0;
-}
-
-button {
-   border-radius: 8px;
-   border: 2px solid transparent;
-   padding: 10px 16px;
-   font-size: 1em;
-   font-weight: bold;
-   font-family: inherit;
-   background-color: #fff;
-   color: #252525;
-   cursor: pointer;
-}
-button:hover {
-   border-color: #fff;
-   background-color: #252525;
-   color: #fff;
-}
-
-@media (prefers-color-scheme: light) {
-   :root {
-      color: #213547;
-      background-color: #ffffff;
-   }
-   a:hover {
-      color: #747bff;
-   }
-   button {
-      background-color: #f9f9f9;
+@layer base {
+   html {
+      font-family: 'Quicksand', sans-serif;
    }
 }
 
-main {
-   width: 1170px;
+body::-webkit-scrollbar,
+body::-webkit-scrollbar-button {
+   width: 20px;
+   height: 10px;
 }
-footer {
-   border-top: 1px solid #444;
-   padding: 30px 20px;
-   margin-top: 80px;
+body::-webkit-scrollbar-thumb {
+   background-color: #2a8059; /* green-700 */
+   border: 5px solid #010101; /* gray-900 */
+   border-radius: 20px;
 }
-#bet-container {
-   display: flex;
-   align-items: stretch;
-   gap: 20px;
-}
-#bet-infos {
-   text-align: left;
-   padding: 30px 20px;
-}
-#bet-form fieldset {
-   max-width: 630px;
-   border: 1px solid #444;
-   border-radius: 10px;
-}
-#bet-form legend {
-   font-size: 1.6rem;
-   font-weight: bold;
-   padding: 0 20px;
-}
-#bet-numbers {
-   display: grid;
-   grid-template-columns: repeat(10, 1fr);
-   gap: 10px;
-   padding: 20px;
-}
-#bet-form label {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 50px;
-   height: 50px;
-   border: 2px solid #fff;
-   border-radius: 50%;
-   cursor: pointer;
-}
-#bet-form input[type='checkbox'],
-#select-modality input[type='radio'] {
-   display: none;
-}
-#select-modality {
-   width: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-wrap: wrap;
-   gap: 20px;
-   border: 1px solid #444;
-   border-radius: 10px;
-   padding: 30px;
-}
-#select-modality label {
-   border: 2px solid #fff;
-   border-radius: 10px;
-   cursor: pointer;
-   padding: 20px;
-   font-weight: bold;
-}
-.checked,
-#select-modality label:hover {
-   background-color: #fff;
-   color: #252525;
-   font-weight: bold;
+body::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:active {
+   background-color: #54ffb1; /* green-300 */
 }
