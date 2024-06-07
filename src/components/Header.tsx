@@ -7,7 +7,7 @@ import { Title } from './Title';
 export function Header() {
    return (
       <header>
-         <div className='flex justify-between gap-6 p-7 border-b border-green-500'>
+         <div className='flex items-center justify-between gap-6 p-7 border-b border-green-500'>
             <img src={LogoPalpiteFeito} alt='Palpite Feito' />
             <nav>
                <ul className='flex gap-5'>
