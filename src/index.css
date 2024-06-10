@@ -8,6 +8,7 @@
    }
 }
 
+/* Scrollbar */
 body::-webkit-scrollbar,
 body::-webkit-scrollbar-button {
    @apply w-5 h-3;
@@ -19,4 +20,30 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover,
 body::-webkit-scrollbar-thumb:active {
    @apply bg-green-300;
+}
+
+/* Toast Radix */
+.toast-root[data-state='open'] {
+   animation: slide-in 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toast-root[data-state='closed'] {
+   animation: hide 300ms ease-in;
+}
+
+@keyframes slide-in {
+   from {
+      transform: translateY(100%);
+   }
+   to {
+      transform: translateY(0);
+   }
+}
+
+@keyframes hide {
+   from {
+      opacity: 1;
+   }
+   to {
+      opacity: 0;
+   }
 }
