@@ -2,7 +2,7 @@
  * @description Verifica a quantidade de números da sequência de Fibonacci que foram selecionados na aposta.
  * @param {string} totalNumbersAvailable String -> Total de números disponíveis para a aposta.
  * @param {string[]} selectedNumbers Array de string -> Array com os números selecionados para a aposta.
- * @return {string} String -> Quantidade de números selecionados e os possíveis da sequência de Fibonacci na aposta.
+ * @return {string} String -> Quantidade de números selecionados.
  * @example
  * // Suponha que o total de números disponíveis são 80 e
  * // os números selecionados da aposta forem: 01, 25, 56, 66, 79.
