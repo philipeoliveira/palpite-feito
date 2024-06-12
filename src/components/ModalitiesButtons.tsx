@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 
-import { ModalityProps } from '../types/Modality';
+import { ModalityProps } from '../types/ModalityProps';
 import { getModalities } from '../services/ModalitiesService';
 import { ModalityContext } from '../contexts/ModalityContext';
 
