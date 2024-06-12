@@ -4,25 +4,22 @@ import { twMerge } from 'tailwind-merge';
 import { Info, RotateCw } from 'lucide-react';
 
 import { Subtitle } from './Subtitle';
-import { BetInfoCard } from './BetInfoCard';
+import { SubtitleDesc } from './SubtitleDesc';
+import { BetCards } from './BetCards';
+import { BetButton } from './BetButton';
 
 import { ModalityContext } from '../contexts/ModalityContext';
+import { BetContext } from '../contexts/BetContext';
 
 import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumbersForBet';
 import { generateBet } from '../utils/generateBet';
-import { getSingularOrPluralWord } from '../utils/getSingularOrPluralWord';
-import { countEvenAndOdd } from '../utils/countEvenAndOdd';
-import { countPrimeNumbers } from '../utils/countPrimeNumbers';
-import { countHalfBet } from '../utils/countHalfBet';
-import { countSelectedFibonacci } from '../utils/countSelectedFibonacci';
-import { countMultiplesOfThree } from '../utils/countMultiplesOfThree';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
-   const { totalNumbersAvailable, minNumbersToBet, maxNumbersToBet, countHalf } =
-      selectedModality;
+   const { totalNumbersAvailable, minNumbersToBet, maxNumbersToBet } = selectedModality;
 
-   const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
+   const { selectedNumbers, setSelectedNumbers } = useContext(BetContext);
+   //const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
 
    const [open, setOpen] = useState(false);
    const timerRef = useRef(0);
@@ -52,13 +49,13 @@ export function Bet() {
       }
    }
 
-   function createBet(totalNumbersAvailable: string, minNumbersToBet: string) {
+   function createBet(minNumbersToBet: string, totalNumbersAvailable: string) {
       const generatedBet = generateBet(minNumbersToBet, totalNumbersAvailable);
       setSelectedNumbers(generatedBet);
    }
    useEffect(() => {
-      createBet(totalNumbersAvailable, minNumbersToBet);
-   }, [totalNumbersAvailable, minNumbersToBet]);
+      createBet(minNumbersToBet, totalNumbersAvailable);
+   }, [minNumbersToBet, totalNumbersAvailable]);
 
    return (
       <section
@@ -67,9 +64,9 @@ export function Bet() {
       >
          <div>
             <Subtitle>Palpite da {selectedModality.name}</Subtitle>
-            <p className='text-green-100'>
+            <SubtitleDesc>
                Números para um palpite de jogo da {selectedModality.name}
-            </p>
+            </SubtitleDesc>
          </div>
 
          <div id='bet' className='flex gap-10'>
@@ -128,44 +125,16 @@ export function Bet() {
                </form>
 
                <div className='flex flex-col gap-4'>
-                  <button
+                  <BetButton
                      onClick={() => createBet(totalNumbersAvailable, minNumbersToBet)}
-                     className='flex items-center justify-center gap-2 text-sm leading-6 uppercase text-green-300 py-1 px-5 bg-gray-900 border border-green-700 rounded duration-200 hover:border-green-300 hover:-translate-y-[2px] hover:duration-200'
                   >
                      <RotateCw size={16} />
                      Recriar palpite
-                  </button>
+                  </BetButton>
                </div>
             </div>
 
-            <ul id='bet-infos'>
-               <BetInfoCard>
-                  {`
-                     ${selectedNumbers.length}
-                     ${getSingularOrPluralWord(
-                        selectedNumbers.length,
-                        'número',
-                        'números'
-                     )}
-                     ${getSingularOrPluralWord(
-                        selectedNumbers.length,
-                        'selecionado',
-                        'selecionados'
-                     )}
-                  `}
-               </BetInfoCard>
-               <BetInfoCard>{countEvenAndOdd(selectedNumbers)}</BetInfoCard>
-               <BetInfoCard>{countPrimeNumbers(selectedNumbers)}</BetInfoCard>
-               <BetInfoCard>{countMultiplesOfThree(selectedNumbers)}</BetInfoCard>
-               {countHalf && (
-                  <BetInfoCard>
-                     {countHalfBet(totalNumbersAvailable, selectedNumbers)}
-                  </BetInfoCard>
-               )}
-               <BetInfoCard>
-                  {countSelectedFibonacci(totalNumbersAvailable, selectedNumbers)}
-               </BetInfoCard>
-            </ul>
+            <BetCards />
          </div>
       </section>
    );
