@@ -4,7 +4,6 @@ import { twMerge } from 'tailwind-merge';
 import { Info, RotateCw } from 'lucide-react';
 
 import { Subtitle } from './Subtitle';
-import { SubtitleDesc } from './SubtitleDesc';
 import { BetCards } from './BetCards';
 import { BetButton } from './BetButton';
 
@@ -73,12 +72,10 @@ export function Bet() {
          id='bet-container'
          className='flex flex-col gap-10 py-7 px-8 my-10 bg-green-900 rounded'
       >
-         <div>
-            <Subtitle>Palpite da {selectedModality.name}</Subtitle>
-            <SubtitleDesc>
-               Números para um palpite de jogo da {selectedModality.name}
-            </SubtitleDesc>
-         </div>
+         <Subtitle
+            subtitle={`Palpite da ${selectedModality.name}`}
+            description={` Números para um palpite de jogo da ${selectedModality.name}`}
+         ></Subtitle>
 
          <div id='bet' className='flex gap-10'>
             <div className='flex flex-col gap-10'>

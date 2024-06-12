@@ -3,7 +3,6 @@ import { AppWindow, TicketPlus } from 'lucide-react';
 
 import { MenuButton } from './MenuButton';
 import { Title } from './Title';
-import { TitleDesc } from './TitleDesc';
 
 export function Header() {
    return (
@@ -28,12 +27,10 @@ export function Header() {
             </nav>
          </div>
 
-         <div className='p-7'>
-            <Title>Criar palpite</Title>
-            <TitleDesc>
-               Escolha uma modalidade abaixo para criar um palpite de jogo
-            </TitleDesc>
-         </div>
+         <Title
+            title='Criar palpite'
+            description='Escolha uma modalidade abaixo para criar um palpite de jogo'
+         ></Title>
       </header>
    );
 }
