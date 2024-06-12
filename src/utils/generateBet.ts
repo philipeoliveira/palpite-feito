@@ -25,7 +25,7 @@ export function generateBet(
          const randomNumber = Math.floor(Math.random() * totalNumsAvailable + 1);
          let randomNumString = addNumberZero(randomNumber.toString());
 
-         // Lotomania
+         // Modalidade(s) com 100 números
          if (randomNumString === '100') randomNumString = randomNumString.slice(-2);
 
          if (!bet.includes(randomNumString)) {
