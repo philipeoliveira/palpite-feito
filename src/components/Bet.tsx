@@ -126,7 +126,7 @@ export function Bet() {
 
                <div className='flex flex-col gap-4'>
                   <BetButton
-                     onClick={() => createBet(totalNumbersAvailable, minNumbersToBet)}
+                     onClick={() => createBet(minNumbersToBet, totalNumbersAvailable)}
                   >
                      <RotateCw size={16} />
                      Recriar palpite
