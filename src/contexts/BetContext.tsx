@@ -3,7 +3,6 @@ import { useState, createContext } from 'react';
 interface BetContextProps {
    selectedNumbers: string[];
    setSelectedNumbers: (bet: string[] | ((prevState: string[]) => string[])) => void;
-   //setSelectedNumbers: React.Dispatch<SetStateAction<string[]>>;
 }
 
 interface BetProviderProps {

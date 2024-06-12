@@ -1,5 +1,5 @@
 import * as Toast from '@radix-ui/react-toast';
-import { useState, useEffect, useContext, useRef } from 'react';
+import { useState, useEffect, useContext, useRef, useCallback } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Info, RotateCw } from 'lucide-react';
 
@@ -19,11 +19,13 @@ export function Bet() {
    const { totalNumbersAvailable, minNumbersToBet, maxNumbersToBet } = selectedModality;
 
    const { selectedNumbers, setSelectedNumbers } = useContext(BetContext);
-   //const [selectedNumbers, setSelectedNumbers] = useState<string[]>([]);
 
    const [open, setOpen] = useState(false);
    const timerRef = useRef(0);
 
+   /**
+    * Lida com a abertura e tempo de exibição da mensagem Toast
+    */
    function handleToastCustom() {
       setOpen(false);
       window.clearTimeout(timerRef.current);
@@ -35,6 +37,9 @@ export function Bet() {
       return () => clearTimeout(timerRef.current);
    }, []);
 
+   /**
+    * Lida com a atualização dos números selecionados
+    */
    function handleSelectedNumber(e: React.ChangeEvent<HTMLInputElement>) {
       const selectedNumber = e.target.name;
 
@@ -49,13 +54,19 @@ export function Bet() {
       }
    }
 
-   function createBet(minNumbersToBet: string, totalNumbersAvailable: string) {
+   /**
+    * Inicia com aposta criada
+    * Recria aposta pelo botão
+    * Recria aposta ao trocar de modalidade
+    */
+   const createBet = useCallback(() => {
       const generatedBet = generateBet(minNumbersToBet, totalNumbersAvailable);
       setSelectedNumbers(generatedBet);
-   }
+   }, [setSelectedNumbers, minNumbersToBet, totalNumbersAvailable]);
+
    useEffect(() => {
-      createBet(minNumbersToBet, totalNumbersAvailable);
-   }, [minNumbersToBet, totalNumbersAvailable]);
+      createBet();
+   }, [createBet, minNumbersToBet, totalNumbersAvailable]);
 
    return (
       <section
@@ -125,9 +136,7 @@ export function Bet() {
                </form>
 
                <div className='flex flex-col gap-4'>
-                  <BetButton
-                     onClick={() => createBet(minNumbersToBet, totalNumbersAvailable)}
-                  >
+                  <BetButton onClick={() => createBet()}>
                      <RotateCw size={16} />
                      Recriar palpite
                   </BetButton>
