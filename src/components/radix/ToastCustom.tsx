@@ -1,76 +1,20 @@
 import * as Toast from '@radix-ui/react-toast';
-import { useState, useEffect, useContext, useRef } from 'react';
+import { useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Info } from 'lucide-react';
 
-import { ModalityContext } from '../../contexts/ModalityContext';
-import { BetContext } from '../../contexts/BetContext';
+import { ToastContext } from '../../contexts/ToastContext';
 
-import { generateAvailableNumbersForBet } from '../../utils/generateAvailableNumbersForBet';
+interface ToastCustomProps {
+   children: React.ReactNode;
+}
 
-export function ToastCustom() {
-   const { selectedModality } = useContext(ModalityContext);
-   const { totalNumbersAvailable, maxNumbersToBet } = selectedModality;
-
-   const { selectedNumbers, setSelectedNumbers } = useContext(BetContext);
-
-   const [open, setOpen] = useState(false);
-   const timerRef = useRef(0);
-
-   /**
-    * Lida com a abertura e tempo de exibição da mensagem Toast
-    */
-   function handleToastCustom() {
-      setOpen(false);
-      window.clearTimeout(timerRef.current);
-      timerRef.current = window.setTimeout(() => {
-         setOpen(true);
-      }, 100);
-   }
-   useEffect(() => {
-      return () => clearTimeout(timerRef.current);
-   }, []);
-
-   /**
-    * Lida com a atualização dos números selecionados
-    */
-   function handleSelectedNumber(e: React.ChangeEvent<HTMLInputElement>) {
-      const selectedNumber = e.target.name;
-
-      if (e.target.checked) {
-         selectedNumbers.length < +maxNumbersToBet
-            ? setSelectedNumbers((prevState) => [...prevState, selectedNumber])
-            : handleToastCustom();
-      } else {
-         setSelectedNumbers((prevState) => {
-            return [...prevState.filter((numString) => numString !== selectedNumber)];
-         });
-      }
-   }
+export function ToastCustom({ children }: ToastCustomProps) {
+   const { open, setOpen } = useContext(ToastContext);
 
    return (
       <Toast.Provider swipeDirection='up'>
-         {generateAvailableNumbersForBet(totalNumbersAvailable).map((numString) => (
-            <label
-               key={numString}
-               className={twMerge(
-                  'flex items-center justify-center text-3xl w-[50px] h-[50px] border-2 rounded-full cursor-pointer duration-100 hover:scale-110 hover:duration-100',
-                  selectedNumbers.includes(numString)
-                     ? 'text-gray-900 font-medium bg-green-300 border-green-300'
-                     : 'text-green-500 bg-gray-900 border-green-500'
-               )}
-            >
-               <input
-                  type='checkbox'
-                  name={`${numString}`}
-                  id={`number-${numString}`}
-                  onChange={handleSelectedNumber}
-                  checked={selectedNumbers.includes(numString) ? true : false}
-                  className='hidden'
-               />
-               {numString}
-            </label>
-         ))}
+         {children}
          <Toast.Root
             open={open}
             onOpenChange={setOpen}

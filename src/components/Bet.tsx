@@ -2,8 +2,9 @@ import { useEffect, useContext, useCallback } from 'react';
 import { RotateCw } from 'lucide-react';
 
 import { Subtitle } from './Subtitle';
-import { BetCards } from './BetCards';
+import { BetNumbers } from './BetNumbers';
 import { BetButton } from './BetButton';
+import { BetCards } from './BetCards';
 import { ToastCustom } from './radix/ToastCustom';
 
 import { ModalityContext } from '../contexts/ModalityContext';
@@ -13,7 +14,7 @@ import { generateBet } from '../utils/generateBet';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
-   const { totalNumbersAvailable, minNumbersToBet } = selectedModality;
+   const { minNumbersToBet, totalNumbersAvailable } = selectedModality;
 
    const { setSelectedNumbers } = useContext(BetContext);
 
@@ -29,7 +30,7 @@ export function Bet() {
 
    useEffect(() => {
       createBet();
-   }, [createBet, minNumbersToBet, totalNumbersAvailable]);
+   }, [createBet]);
 
    return (
       <section
@@ -38,14 +39,16 @@ export function Bet() {
       >
          <Subtitle
             subtitle={`Palpite da ${selectedModality.name}`}
-            description={` Números para um palpite de jogo da ${selectedModality.name}`}
+            description={`Números para um palpite de jogo da ${selectedModality.name}`}
          ></Subtitle>
 
          <div id='bet' className='flex gap-10'>
             <div className='flex flex-col gap-10'>
                <form id='bet-form'>
                   <fieldset className='grid grid-cols-10 gap-3'>
-                     <ToastCustom />
+                     <ToastCustom>
+                        <BetNumbers />
+                     </ToastCustom>
                   </fieldset>
                </form>
 
