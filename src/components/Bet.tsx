@@ -3,7 +3,7 @@ import { RotateCw } from 'lucide-react';
 
 import { Subtitle } from './Subtitle';
 import { BetNumbers } from './BetNumbers';
-import { BetButton } from './BetButton';
+import { Button } from './Button';
 import { BetCards } from './BetCards';
 import { ToastCustom } from './radix/ToastCustom';
 
@@ -53,10 +53,10 @@ export function Bet() {
                </form>
 
                <div className='flex flex-col gap-4'>
-                  <BetButton onClick={() => createBet()}>
+                  <Button onClick={() => createBet()}>
                      <RotateCw size={16} />
                      Recriar palpite
-                  </BetButton>
+                  </Button>
                </div>
             </div>
 

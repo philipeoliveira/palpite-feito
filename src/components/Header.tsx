@@ -1,7 +1,7 @@
 import LogoPalpiteFeito from '../assets/logo-palpite-feito.svg';
 import { AppWindow, TicketPlus } from 'lucide-react';
 
-import { MenuButton } from './MenuButton';
+import { Button } from './Button';
 import { Title } from './Title';
 
 export function Header() {
@@ -12,16 +12,16 @@ export function Header() {
             <nav>
                <ul className='flex gap-5'>
                   <li>
-                     <MenuButton>
+                     <Button>
                         <TicketPlus size={16} />
                         Criar palpite
-                     </MenuButton>
+                     </Button>
                   </li>
                   <li>
-                     <MenuButton>
+                     <Button>
                         <AppWindow size={16} />
                         Sobre o site
-                     </MenuButton>
+                     </Button>
                   </li>
                </ul>
             </nav>

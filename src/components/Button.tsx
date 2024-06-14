@@ -1,10 +1,10 @@
 import { ComponentProps } from 'react';
 
-interface BetButtonProps extends ComponentProps<'button'> {
+interface ButtonProps extends ComponentProps<'button'> {
    children: string | React.ReactNode;
 }
 
-export function BetButton(props: BetButtonProps) {
+export function Button(props: ButtonProps) {
    return (
       <button
          {...props}
