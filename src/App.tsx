@@ -1,5 +1,5 @@
 import { Header } from './components/Header';
-import { ModalitiesButtons } from './components/ModalitiesButtons';
+import { Modalities } from './components/Modalities';
 import { Bet } from './components/Bet';
 import { Footer } from './components/Footer';
 
@@ -15,7 +15,7 @@ function App() {
                <div className='max-w-[1170px] mx-auto px-7 flex flex-col gap-2'>
                   <Header />
                   <main>
-                     <ModalitiesButtons />
+                     <Modalities />
                      <Bet />
                   </main>
                   <Footer />
