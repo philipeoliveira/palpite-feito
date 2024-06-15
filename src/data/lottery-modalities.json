@@ -3,33 +3,33 @@
       {
          "id": "1",
          "name": "Lotofácil",
-         "totalNumbersAvailable": "25",
          "minNumbersToBet": "15",
          "maxNumbersToBet": "20",
+         "totalNumbersAvailable": "25",
          "countHalf": true
       },
       {
          "id": "2",
          "name": "Lotomania",
-         "totalNumbersAvailable": "100",
          "minNumbersToBet": "50",
          "maxNumbersToBet": "50",
+         "totalNumbersAvailable": "100",
          "countHalf": false
       },
       {
          "id": "3",
          "name": "Mega-Sena",
-         "totalNumbersAvailable": "60",
          "minNumbersToBet": "6",
          "maxNumbersToBet": "20",
+         "totalNumbersAvailable": "60",
          "countHalf": true
       },
       {
          "id": "4",
          "name": "Quina",
-         "totalNumbersAvailable": "80",
          "minNumbersToBet": "5",
          "maxNumbersToBet": "15",
+         "totalNumbersAvailable": "80",
          "countHalf": true
       }
    ]
