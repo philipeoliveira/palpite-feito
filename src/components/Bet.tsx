@@ -48,7 +48,7 @@ export function Bet() {
                   <fieldset
                      className={`grid ${
                         +totalNumbersAvailable < 50 ? 'grid-cols-5' : 'grid-cols-10'
-                     } gap-4`}
+                     } gap-3`}
                   >
                      <ToastCustom>
                         <BetNumbers />
