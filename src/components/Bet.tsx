@@ -45,7 +45,11 @@ export function Bet() {
          <div id='bet' className='flex gap-10'>
             <div className='flex flex-col gap-10'>
                <form id='bet-form'>
-                  <fieldset className='grid grid-cols-10 gap-3'>
+                  <fieldset
+                     className={`grid ${
+                        +totalNumbersAvailable < 50 ? 'grid-cols-5' : 'grid-cols-10'
+                     } gap-4`}
+                  >
                      <ToastCustom>
                         <BetNumbers />
                      </ToastCustom>
