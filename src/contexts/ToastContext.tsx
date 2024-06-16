@@ -4,6 +4,10 @@ interface ToastContextProps {
    open: boolean;
    setOpen: (isOpen: boolean) => void;
    handleToastCustom: () => void;
+   icon: React.ReactNode;
+   setIcon: (icon: React.ReactNode) => void;
+   message: string;
+   setMessage: (message: string) => void;
 }
 
 interface ToastProviderProps {
@@ -14,6 +18,8 @@ export const ToastContext = createContext({} as ToastContextProps);
 
 export function ToastProvider({ children }: ToastProviderProps) {
    const [open, setOpen] = useState(false);
+   const [icon, setIcon] = useState<React.ReactNode>();
+   const [message, setMessage] = useState('');
    const timerRef = useRef(0);
 
    /**
@@ -31,7 +37,9 @@ export function ToastProvider({ children }: ToastProviderProps) {
    }, []);
 
    return (
-      <ToastContext.Provider value={{ open, setOpen, handleToastCustom }}>
+      <ToastContext.Provider
+         value={{ open, setOpen, handleToastCustom, icon, setIcon, message, setMessage }}
+      >
          {children}
       </ToastContext.Provider>
    );

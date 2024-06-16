@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { Info } from 'lucide-react';
 
 import { ToastContext } from '../contexts/ToastContext';
 import { ModalityContext } from '../contexts/ModalityContext';
@@ -13,7 +14,22 @@ export function BetNumbers() {
 
    const { selectedNumbers, setSelectedNumbers } = useContext(BetContext);
 
-   const { handleToastCustom } = useContext(ToastContext);
+   const { handleToastCustom, setIcon, setMessage } = useContext(ToastContext);
+
+   /**
+    * Lida com ações e estados para personalizar do Toast
+    */
+   function handleToastNumbers() {
+      handleToastCustom();
+      setIcon(
+         <Info
+            size={20}
+            strokeWidth={2}
+            className='text-green-100 bg-gray-900 rounded-full'
+         />
+      );
+      setMessage('O limite de números para este palpite foi atingido');
+   }
 
    /**
     * Lida com a atualização dos números selecionados
@@ -24,7 +40,7 @@ export function BetNumbers() {
       if (e.target.checked) {
          selectedNumbers.length < +maxNumbersToBet
             ? setSelectedNumbers((prevState) => [...prevState, selectedNumber])
-            : handleToastCustom();
+            : handleToastNumbers();
       } else {
          setSelectedNumbers((prevState) => {
             return [...prevState.filter((numString) => numString !== selectedNumber)];

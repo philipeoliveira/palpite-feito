@@ -1,7 +1,6 @@
 import * as Toast from '@radix-ui/react-toast';
 import { useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { Info } from 'lucide-react';
 
 import { ToastContext } from '../../contexts/ToastContext';
 
@@ -10,7 +9,7 @@ interface ToastCustomProps {
 }
 
 export function ToastCustom({ children }: ToastCustomProps) {
-   const { open, setOpen } = useContext(ToastContext);
+   const { open, setOpen, icon, message } = useContext(ToastContext);
 
    return (
       <Toast.Provider swipeDirection='up'>
@@ -23,12 +22,8 @@ export function ToastCustom({ children }: ToastCustomProps) {
          >
             <Toast.Description asChild>
                <div className='flex items-center justify-center gap-2 text-gray-900 font-medium bg-green-100'>
-                  <Info
-                     size={20}
-                     strokeWidth={2}
-                     className='text-green-100 bg-gray-900 rounded-full'
-                  />
-                  O limite de números para este palpite foi atingido
+                  {icon}
+                  {message}
                </div>
             </Toast.Description>
          </Toast.Root>
