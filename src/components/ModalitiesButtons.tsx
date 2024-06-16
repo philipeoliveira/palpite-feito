@@ -31,8 +31,10 @@ export function ModalitiesButtons() {
       <label
          key={modality.id}
          className={twMerge(
-            'text-xl text-green-300 border border-green-700 py-5 px-8 rounded cursor-pointer duration-200 hover:border-green-300 hover:-translate-y-[2px] hover:duration-200',
-            selectedModality.name === modality.name ? 'border-b-green-300' : ''
+            'text-xl text-green-300 border border-green-700 py-5 px-8 rounded duration-200 ',
+            selectedModality.name === modality.name
+               ? '-translate-y-[2px] border-b-green-300'
+               : 'hover:-translate-y-[2px] hover:border-green-300  hover:duration-200 cursor-pointer'
          )}
       >
          <input
