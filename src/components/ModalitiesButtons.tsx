@@ -30,20 +30,22 @@ export function ModalitiesButtons() {
    return modalities.map((modality) => (
       <label
          key={modality.id}
+         htmlFor={lowercaseWithoutAccents(modality.name)}
          className={twMerge(
-            'text-xl text-green-300 border border-green-700 py-5 px-8 rounded duration-200 ',
+            'has-[:focus]:border-green-300 text-xl text-green-300 border border-green-700 py-5 px-8 rounded duration-200',
             selectedModality.name === modality.name
                ? '-translate-y-[2px] border-b-green-300'
-               : 'hover:-translate-y-[2px] hover:border-green-300  hover:duration-200 cursor-pointer'
+               : 'hover:-translate-y-[2px] hover:border-green-300 hover:duration-200 cursor-pointer'
          )}
       >
          <input
             type='radio'
             name='modality'
             id={lowercaseWithoutAccents(modality.name)}
+            aria-label={`Aba da ${modality.name}`}
             value={modality.name}
             onChange={handleSelectedModality}
-            className='hidden'
+            className='w-0 h-0 opacity-0 focus:border-none'
          />
          {`${modality.name}`}
       </label>
