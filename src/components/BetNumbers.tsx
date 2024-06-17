@@ -51,8 +51,9 @@ export function BetNumbers() {
    return generateAvailableNumbersForBet(totalNumbersAvailable).map((numString) => (
       <label
          key={numString}
+         htmlFor={`number-${numString}`}
          className={twMerge(
-            'flex items-center justify-center text-3xl w-[50px] h-[50px] border-2 rounded-full cursor-pointer duration-100 hover:scale-110 hover:duration-100',
+            'flex items-center justify-center text-3xl w-[50px] h-[50px] border-2 rounded-full cursor-pointer duration-100 hover:scale-110 hover:duration-100 has-[:focus]:scale-110 has-[:focus]:duration-100',
             selectedNumbers.includes(numString)
                ? 'text-gray-900 font-medium bg-green-300 border-green-300'
                : 'text-green-500 bg-gray-900 border-green-500'
@@ -62,9 +63,10 @@ export function BetNumbers() {
             type='checkbox'
             name={`${numString}`}
             id={`number-${numString}`}
+            aria-label={`${numString}`}
             onChange={handleSelectedNumber}
             checked={selectedNumbers.includes(numString) ? true : false}
-            className='hidden'
+            className='w-0 h-0 opacity-0'
          />
          {numString}
       </label>
