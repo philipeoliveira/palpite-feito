@@ -46,6 +46,7 @@ export function Bet() {
             <div className='flex flex-col gap-10'>
                <form id='bet-form'>
                   <fieldset
+                     aria-label='Selecione números para um palpite de jogo'
                      className={`grid ${
                         +totalNumbersAvailable < 50 ? 'grid-cols-5' : 'grid-cols-10'
                      } gap-3`}
