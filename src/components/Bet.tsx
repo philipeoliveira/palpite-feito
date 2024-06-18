@@ -1,10 +1,10 @@
-import { useEffect, useContext, useCallback, useState } from 'react';
+import { useEffect, useContext, useCallback } from 'react';
 import { ArrowLeftRight, AlignLeft, RotateCw } from 'lucide-react';
 
 import { Subtitle } from './Subtitle';
-import { BetOrder } from './BetOrder';
 import { BetNumbers } from './BetNumbers';
 import { Button } from './Button';
+import { AllBetOrders } from './AllBetOrders';
 import { BetCards } from './BetCards';
 import { ToastCustom } from './radix/ToastCustom';
 
@@ -12,16 +12,13 @@ import { ModalityContext } from '../contexts/ModalityContext';
 import { BetContext } from '../contexts/BetContext';
 
 import { generateBet } from '../utils/generateBet';
-import sortNumbersAscending from '../utils/sortNumbersAscending';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
    const { minNumbersToBet, totalNumbersAvailable } = selectedModality;
 
-   const { selectedNumbers, setSelectedNumbers, showOrders, handleToggleInfos } =
+   const { setSelectedNumbers, setRandonBet, showOrders, handleToggleInfos } =
       useContext(BetContext);
-
-   const [randonBet, setRandonBet] = useState<string[]>([]);
 
    /**
     * Inicia com aposta criada
@@ -32,7 +29,7 @@ export function Bet() {
       const generatedBet = generateBet(minNumbersToBet, totalNumbersAvailable);
       setSelectedNumbers(generatedBet);
       setRandonBet(generatedBet);
-   }, [setSelectedNumbers, minNumbersToBet, totalNumbersAvailable]);
+   }, [setSelectedNumbers, setRandonBet, minNumbersToBet, totalNumbersAvailable]);
 
    useEffect(() => {
       createBet();
@@ -76,27 +73,7 @@ export function Bet() {
                </div>
             </div>
 
-            {showOrders ? (
-               <div id='bet-orders' className='flex flex-col gap-3'>
-                  <BetOrder>
-                     {randonBet.map((numString) => (
-                        <span key={numString}>{numString}</span>
-                     ))}
-                  </BetOrder>
-                  <BetOrder>
-                     {selectedNumbers.map((numString) => (
-                        <span key={numString}>{numString}</span>
-                     ))}
-                  </BetOrder>
-                  <BetOrder>
-                     {sortNumbersAscending(selectedNumbers).map((numString) => (
-                        <span key={numString}>{numString}</span>
-                     ))}
-                  </BetOrder>
-               </div>
-            ) : (
-               <BetCards />
-            )}
+            {showOrders ? <AllBetOrders /> : <BetCards />}
          </div>
       </section>
    );

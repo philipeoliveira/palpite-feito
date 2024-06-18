@@ -3,16 +3,17 @@ import { useContext } from 'react';
 import { ModalityContext } from '../contexts/ModalityContext';
 
 interface BetOrdersProps {
+   titleText: string;
    children: React.ReactNode;
 }
 
-export function BetOrder({ children }: BetOrdersProps) {
+export function BetOrder({ titleText, children }: BetOrdersProps) {
    const { selectedModality } = useContext(ModalityContext);
    const { totalNumbersAvailable } = selectedModality;
 
    return (
       <div className='flex flex-col gap-1'>
-         <h3 className='text-green-700'>Sorteados aleatoriamente:</h3>
+         <h3 className='text-green-700'>{titleText}</h3>
          <div
             className={`grid ${
                +totalNumbersAvailable < 50 ? 'grid-cols-8' : 'grid-cols-10'
