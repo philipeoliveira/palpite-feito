@@ -1,7 +1,8 @@
-import { useEffect, useContext, useCallback } from 'react';
-import { RotateCw } from 'lucide-react';
+import { useEffect, useContext, useCallback, useState } from 'react';
+import { ArrowLeftRight, AlignLeft, RotateCw } from 'lucide-react';
 
 import { Subtitle } from './Subtitle';
+import { BetOrder } from './BetOrder';
 import { BetNumbers } from './BetNumbers';
 import { Button } from './Button';
 import { BetCards } from './BetCards';
@@ -11,12 +12,16 @@ import { ModalityContext } from '../contexts/ModalityContext';
 import { BetContext } from '../contexts/BetContext';
 
 import { generateBet } from '../utils/generateBet';
+import sortNumbersAscending from '../utils/sortNumbersAscending';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
    const { minNumbersToBet, totalNumbersAvailable } = selectedModality;
 
-   const { setSelectedNumbers } = useContext(BetContext);
+   const { selectedNumbers, setSelectedNumbers, showOrders, handleToggleInfos } =
+      useContext(BetContext);
+
+   const [randonBet, setRandonBet] = useState<string[]>([]);
 
    /**
     * Inicia com aposta criada
@@ -26,6 +31,7 @@ export function Bet() {
    const createBet = useCallback(() => {
       const generatedBet = generateBet(minNumbersToBet, totalNumbersAvailable);
       setSelectedNumbers(generatedBet);
+      setRandonBet(generatedBet);
    }, [setSelectedNumbers, minNumbersToBet, totalNumbersAvailable]);
 
    useEffect(() => {
@@ -58,6 +64,11 @@ export function Bet() {
                </form>
 
                <div className='flex flex-col gap-4'>
+                  <Button onClick={handleToggleInfos}>
+                     {showOrders ? <AlignLeft size={15} /> : <ArrowLeftRight size={16} />}
+                     {showOrders ? 'Mostrar cards' : 'Mostrar ordens'}
+                  </Button>
+
                   <Button onClick={() => createBet()}>
                      <RotateCw size={16} />
                      Recriar palpite
@@ -65,7 +76,27 @@ export function Bet() {
                </div>
             </div>
 
-            <BetCards />
+            {showOrders ? (
+               <div id='bet-orders' className='flex flex-col gap-3'>
+                  <BetOrder>
+                     {randonBet.map((numString) => (
+                        <span key={numString}>{numString}</span>
+                     ))}
+                  </BetOrder>
+                  <BetOrder>
+                     {selectedNumbers.map((numString) => (
+                        <span key={numString}>{numString}</span>
+                     ))}
+                  </BetOrder>
+                  <BetOrder>
+                     {sortNumbersAscending(selectedNumbers).map((numString) => (
+                        <span key={numString}>{numString}</span>
+                     ))}
+                  </BetOrder>
+               </div>
+            ) : (
+               <BetCards />
+            )}
          </div>
       </section>
    );

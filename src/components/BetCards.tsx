@@ -19,7 +19,7 @@ export function BetCards() {
    const { selectedNumbers } = useContext(BetContext);
 
    return (
-      <ul id='bet-cards'>
+      <ul id='bet-cards' className='pt-2'>
          <Card>
             {`
                ${selectedNumbers.length}
