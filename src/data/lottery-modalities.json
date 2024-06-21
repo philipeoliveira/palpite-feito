@@ -28,7 +28,7 @@
          "totalNumbersAvailable": "60",
          "numberOfColumns": 10,
          "countHalf": true,
-         "countIntoGroups": false
+         "countIntoGroups": true
       },
       {
          "id": "4",
@@ -38,7 +38,7 @@
          "totalNumbersAvailable": "80",
          "numberOfColumns": 10,
          "countHalf": true,
-         "countIntoGroups": false
+         "countIntoGroups": true
       }
    ]
 }

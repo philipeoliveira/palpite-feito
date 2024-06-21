@@ -15,17 +15,16 @@
 import { generateAvailableNumbersForBet } from './generateAvailableNumbersForBet';
 import sortNumbersAscending from './sortNumbersAscending';
 
-const quantityPerGroup = 5;
-
 export function countSelectedIntoGroups(
    totalNumbersAvailable: string,
-   selectedNumbers: string[]
+   selectedNumbers: string[],
+   numberOfColumns: number
 ): string {
    const numbersAvailable = generateAvailableNumbersForBet(totalNumbersAvailable);
    const selectedIntoGroups = [];
 
-   for (let i = 0; i < +numbersAvailable.length; i += quantityPerGroup) {
-      const numbersPerGroup = numbersAvailable.slice(i, i + quantityPerGroup);
+   for (let i = 0; i < +numbersAvailable.length; i += numberOfColumns) {
+      const numbersPerGroup = numbersAvailable.slice(i, i + numberOfColumns);
       let selectedPerGroup = 0;
 
       for (const num of numbersPerGroup) {

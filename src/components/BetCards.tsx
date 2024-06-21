@@ -15,7 +15,8 @@ import { BetContext } from '../contexts/BetContext';
 
 export function BetCards() {
    const { selectedModality } = useContext(ModalityContext);
-   const { totalNumbersAvailable, countHalf, countIntoGroups } = selectedModality;
+   const { totalNumbersAvailable, numberOfColumns, countHalf, countIntoGroups } =
+      selectedModality;
 
    const { selectedNumbers } = useContext(BetContext);
 
@@ -39,7 +40,13 @@ export function BetCards() {
             <Card>{countHalfBet(totalNumbersAvailable, selectedNumbers)}</Card>
          )}
          {countIntoGroups && (
-            <Card>{countSelectedIntoGroups(totalNumbersAvailable, selectedNumbers)}</Card>
+            <Card>
+               {countSelectedIntoGroups(
+                  totalNumbersAvailable,
+                  selectedNumbers,
+                  numberOfColumns
+               )}
+            </Card>
          )}
          <Card>{countSelectedFibonacci(totalNumbersAvailable, selectedNumbers)}</Card>
       </ul>
