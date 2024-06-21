@@ -13,6 +13,7 @@
       "@radix-ui/react-toast": "^1.1.5",
       "@types/axios": "^0.14.0",
       "axios": "^1.7.2",
+      "framer-motion": "^11.2.11",
       "lucide-react": "^0.390.0",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",

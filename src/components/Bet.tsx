@@ -12,6 +12,7 @@ import { ModalityContext } from '../contexts/ModalityContext';
 import { BetContext } from '../contexts/BetContext';
 
 import { generateBet } from '../utils/generateBet';
+import { animationToggleInfos } from '../utils/framer-motion/animations';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
@@ -21,9 +22,8 @@ export function Bet() {
       useContext(BetContext);
 
    /**
-    * Inicia com aposta criada
-    * Recria aposta pelo botão
-    * Recria aposta ao trocar de modalidade
+    * selectedNumbers: Inicia com aposta criada, recria aposta pelo botão, recria aposta ao trocar de modalidade.
+    * randonBet: Armazena números sorteados aleatoriamente.
     */
    const createBet = useCallback(() => {
       const generatedBet = generateBet(minNumbersToBet, totalNumbersAvailable);
@@ -61,7 +61,11 @@ export function Bet() {
                </form>
 
                <div className='flex flex-col gap-4'>
-                  <Button onClick={handleToggleInfos}>
+                  <Button
+                     onClick={() => {
+                        handleToggleInfos(), animationToggleInfos();
+                     }}
+                  >
                      {showOrders ? <AlignLeft size={15} /> : <ArrowLeftRight size={16} />}
                      {showOrders ? 'Mostrar cards' : 'Mostrar ordens'}
                   </Button>
@@ -73,7 +77,9 @@ export function Bet() {
                </div>
             </div>
 
-            {showOrders ? <AllBetOrders /> : <BetCards />}
+            <div id='bet-toggle-infos'>
+               {showOrders ? <AllBetOrders /> : <BetCards />}
+            </div>
          </div>
       </section>
    );
