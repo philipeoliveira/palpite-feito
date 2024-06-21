@@ -16,7 +16,7 @@ import { animationToggleInfos } from '../utils/framer-motion/animations';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
-   const { minNumbersToBet, totalNumbersAvailable } = selectedModality;
+   const { minNumbersToBet, totalNumbersAvailable, numberOfColumns } = selectedModality;
 
    const { setSelectedNumbers, setRandonBet, showOrders, handleToggleInfos } =
       useContext(BetContext);
@@ -50,9 +50,7 @@ export function Bet() {
                <form id='bet-form'>
                   <fieldset
                      aria-label='Selecione números para um palpite de jogo'
-                     className={`grid ${
-                        +totalNumbersAvailable < 50 ? 'grid-cols-5' : 'grid-cols-10'
-                     } gap-3`}
+                     className={`grid grid-cols-${numberOfColumns} gap-3`}
                   >
                      <ToastCustom>
                         <BetNumbers />

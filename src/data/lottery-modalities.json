@@ -6,6 +6,7 @@
          "minNumbersToBet": "15",
          "maxNumbersToBet": "20",
          "totalNumbersAvailable": "25",
+         "numberOfColumns": 5,
          "countHalf": true,
          "countIntoGroups": true
       },
@@ -15,6 +16,7 @@
          "minNumbersToBet": "50",
          "maxNumbersToBet": "50",
          "totalNumbersAvailable": "100",
+         "numberOfColumns": 10,
          "countHalf": false,
          "countIntoGroups": false
       },
@@ -24,6 +26,7 @@
          "minNumbersToBet": "6",
          "maxNumbersToBet": "20",
          "totalNumbersAvailable": "60",
+         "numberOfColumns": 10,
          "countHalf": true,
          "countIntoGroups": false
       },
@@ -33,6 +36,7 @@
          "minNumbersToBet": "5",
          "maxNumbersToBet": "15",
          "totalNumbersAvailable": "80",
+         "numberOfColumns": 10,
          "countHalf": true,
          "countIntoGroups": false
       }
