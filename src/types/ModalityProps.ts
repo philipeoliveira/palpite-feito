@@ -4,5 +4,6 @@ export interface ModalityProps {
    minNumbersToBet: string;
    maxNumbersToBet: string;
    totalNumbersAvailable: string;
-   countHalf: boolean;
+   countHalf: boolean; // contagem de números nas duas metades da aposta
+   countIntoGroups: boolean; // contagem baseada na diagramação do volante
 }
