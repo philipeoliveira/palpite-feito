@@ -1,5 +1,5 @@
 import { useEffect, useContext, useCallback } from 'react';
-import { ArrowLeftRight, AlignLeft, RotateCw, Copy, CircleCheck } from 'lucide-react';
+import { ArrowLeftRight, AlignLeft, RotateCw, Copy } from 'lucide-react';
 
 import { Subtitle } from './Subtitle';
 import { BetNumbers } from './BetNumbers';
@@ -8,9 +8,10 @@ import { AllBetOrders } from './AllBetOrders';
 import { BetCards } from './BetCards';
 import { ToastCustom } from './radix/ToastCustom';
 
+import { useToastClipboard } from '../hooks/useToastClipboard';
+
 import { ModalityContext } from '../contexts/ModalityContext';
 import { BetContext } from '../contexts/BetContext';
-import { ToastContext } from '../contexts/ToastContext';
 
 import { generateBet } from '../utils/generateBet';
 import { copyToClipboard } from '../utils/copyToClipboard';
@@ -23,22 +24,8 @@ export function Bet() {
       useContext(BetContext);
 
    const { selectedNumbers } = useContext(BetContext);
-   const { handleToastCustom, setIcon, setMessage } = useContext(ToastContext);
 
-   /**
-    * Lida com ações e estados para personalizar do Toast
-    */
-   function handleToastClipboard() {
-      handleToastCustom();
-      setIcon(
-         <CircleCheck
-            size={20}
-            strokeWidth={2}
-            className='text-green-100 bg-gray-900 rounded-full'
-         />
-      );
-      setMessage('Texto copiado com sucesso');
-   }
+   const { handleToastClipboard } = useToastClipboard();
 
    /**
     * selectedNumbers: Inicia com aposta criada, recria aposta pelo botão, recria aposta ao trocar de modalidade.
