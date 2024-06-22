@@ -1,3 +1,6 @@
+import { generateAvailableNumbersForBet } from './generateAvailableNumbersForBet';
+import sortNumbersAscending from './sortNumbersAscending';
+
 /**
  * @description Separa em grupos os números disponíveis da aposta e conta quantos há em cada grupo.
  * @param {string} totalNumbersAvailable String -> Total de números disponíveis para a aposta.
@@ -13,9 +16,6 @@
  * ));
  * // Resultado esperado: 3-3-4-2-3 no volante
  */
-
-import { generateAvailableNumbersForBet } from './generateAvailableNumbersForBet';
-import sortNumbersAscending from './sortNumbersAscending';
 
 export function countSelectedIntoGroups(
    totalNumbersAvailable: string,

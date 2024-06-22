@@ -1,3 +1,5 @@
+import { getSingularOrPluralWord } from './getSingularOrPluralWord';
+
 /**
  * @description Faz a contagem de números múltiplos de 3.
  * @param {string[]} selectedNumbers Array de string -> Array com os números que serão verificados para a contagem.
@@ -8,8 +10,6 @@
  * console.log(multiplesOfThree);
  * // Resultado esperado: 2 múltiplos de 3
  */
-
-import { getSingularOrPluralWord } from './getSingularOrPluralWord';
 
 export function countMultiplesOfThree(selectedNumbers: string[]): string {
    let count = 0;

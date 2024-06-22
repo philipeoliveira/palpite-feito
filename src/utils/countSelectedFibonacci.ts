@@ -1,3 +1,5 @@
+import { addNumberZero } from './addNumberZero';
+
 /**
  * @description Verifica a quantidade de números da sequência de Fibonacci que foram selecionados na aposta.
  * @param {string} totalNumbersAvailable String -> Total de números disponíveis para a aposta.
@@ -9,8 +11,6 @@
  * console.log(countSelectedFibonacci("80", ["01", "25", "56", "66", "79"]));
  * // Resultado esperado: 1 da sequência de Fibonacci
  */
-
-import { addNumberZero } from './addNumberZero';
 
 export function countSelectedFibonacci(
    totalNumbersAvailable: string,

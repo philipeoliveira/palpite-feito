@@ -1,3 +1,5 @@
+import { getSingularOrPluralWord } from './getSingularOrPluralWord';
+
 /**
  * @description Faz a contagem de números pares e ímpares.
  * @param {string[]} selectedNumbers Array de string -> Array com os números que serão verificados como par ou ímpar.
@@ -8,8 +10,6 @@
  * console.log(evenAndOdd);
  * // Resultado esperado: 3 pares e 2 ímpares
  */
-
-import { getSingularOrPluralWord } from './getSingularOrPluralWord';
 
 export function countEvenAndOdd(selectedNumbers: string[]): string {
    let evenCount = 0;

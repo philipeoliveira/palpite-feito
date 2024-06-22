@@ -1,3 +1,5 @@
+import { getSingularOrPluralWord } from './getSingularOrPluralWord';
+
 /**
  * @description Faz a contagem de números primos.
  * @param {string[]} selectedNumbers Array de string -> Array com os números que serão verificados para a contagem de primos.
@@ -8,8 +10,6 @@
  * console.log(prime);
  * // Resultado esperado: 2 primos
  */
-
-import { getSingularOrPluralWord } from './getSingularOrPluralWord';
 
 export function countPrimeNumbers(selectedNumbers: string[]): string {
    let count = 0;

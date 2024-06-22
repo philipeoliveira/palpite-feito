@@ -1,3 +1,5 @@
+import { addNumberZero } from './addNumberZero';
+
 /**
  * @description Gera aleatoriamente uma sequência de números referente a uma aposta.
  * @param {string} totalNumbersToGenerate  String -> Quantidade de números a serem gerados para a aposta.
@@ -9,8 +11,6 @@
  * console.log(bet);
  * // Resultado esperado: ["03", "08", "07", "01", "10",]
  */
-
-import { addNumberZero } from './addNumberZero';
 
 export function generateBet(
    totalNumbersToGenerate: string,
