@@ -13,7 +13,6 @@ import { BetContext } from '../contexts/BetContext';
 import { ToastContext } from '../contexts/ToastContext';
 
 import { generateBet } from '../utils/generateBet';
-import { animationToggleInfos } from '../utils/framer-motion/animations';
 import { copyToClipboard } from '../utils/copyToClipboard';
 
 export function Bet() {
@@ -84,11 +83,7 @@ export function Bet() {
                      Recriar palpite
                   </Button>
 
-                  <Button
-                     onClick={() => {
-                        handleToggleInfos(), animationToggleInfos();
-                     }}
-                  >
+                  <Button onClick={() => handleToggleInfos()}>
                      {showOrders ? <AlignLeft size={15} /> : <ArrowLeftRight size={16} />}
                      {showOrders ? 'Mostrar cards' : 'Mostrar ordens'}
                   </Button>

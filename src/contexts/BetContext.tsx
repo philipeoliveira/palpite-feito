@@ -1,4 +1,5 @@
 import { useState, createContext } from 'react';
+import { animationToggleInfos } from '../utils/framer-motion/animations';
 
 interface BetContextProps {
    selectedNumbers: string[];
@@ -22,6 +23,7 @@ export function BetProvider({ children }: BetProviderProps) {
    const [showOrders, setShowOrders] = useState(false);
 
    function handleToggleInfos() {
+      animationToggleInfos();
       setShowOrders(!showOrders);
    }
 
