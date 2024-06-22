@@ -1,5 +1,5 @@
 import { useEffect, useContext, useCallback } from 'react';
-import { ArrowLeftRight, AlignLeft, RotateCw } from 'lucide-react';
+import { ArrowLeftRight, AlignLeft, RotateCw, Copy, CircleCheck } from 'lucide-react';
 
 import { Subtitle } from './Subtitle';
 import { BetNumbers } from './BetNumbers';
@@ -10,9 +10,11 @@ import { ToastCustom } from './radix/ToastCustom';
 
 import { ModalityContext } from '../contexts/ModalityContext';
 import { BetContext } from '../contexts/BetContext';
+import { ToastContext } from '../contexts/ToastContext';
 
 import { generateBet } from '../utils/generateBet';
 import { animationToggleInfos } from '../utils/framer-motion/animations';
+import { copyToClipboard } from '../utils/copyToClipboard';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
@@ -20,6 +22,24 @@ export function Bet() {
 
    const { setSelectedNumbers, setRandonBet, showOrders, handleToggleInfos } =
       useContext(BetContext);
+
+   const { selectedNumbers } = useContext(BetContext);
+   const { handleToastCustom, setIcon, setMessage } = useContext(ToastContext);
+
+   /**
+    * Lida com ações e estados para personalizar do Toast
+    */
+   function handleToastClipboard() {
+      handleToastCustom();
+      setIcon(
+         <CircleCheck
+            size={20}
+            strokeWidth={2}
+            className='text-green-100 bg-gray-900 rounded-full'
+         />
+      );
+      setMessage('Texto copiado com sucesso');
+   }
 
    /**
     * selectedNumbers: Inicia com aposta criada, recria aposta pelo botão, recria aposta ao trocar de modalidade.
@@ -59,6 +79,11 @@ export function Bet() {
                </form>
 
                <div className='flex flex-col gap-4'>
+                  <Button onClick={() => createBet()}>
+                     <RotateCw size={16} />
+                     Recriar palpite
+                  </Button>
+
                   <Button
                      onClick={() => {
                         handleToggleInfos(), animationToggleInfos();
@@ -68,9 +93,13 @@ export function Bet() {
                      {showOrders ? 'Mostrar cards' : 'Mostrar ordens'}
                   </Button>
 
-                  <Button onClick={() => createBet()}>
-                     <RotateCw size={16} />
-                     Recriar palpite
+                  <Button
+                     onClick={() => {
+                        copyToClipboard(selectedNumbers, handleToastClipboard);
+                     }}
+                  >
+                     <Copy size={16} />
+                     Copiar palpite
                   </Button>
                </div>
             </div>
