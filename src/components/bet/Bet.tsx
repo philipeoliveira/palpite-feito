@@ -1,20 +1,20 @@
 import { useEffect, useContext, useCallback } from 'react';
 import { ArrowLeftRight, AlignLeft, RotateCw, Copy } from 'lucide-react';
 
-import { Subtitle } from './Subtitle';
+import { Subtitle } from '../Subtitle';
 import { BetNumbers } from './BetNumbers';
-import { Button } from './Button';
+import { Button } from '../Button';
 import { AllBetOrders } from './AllBetOrders';
 import { BetCards } from './BetCards';
-import { ToastCustom } from './radix/ToastCustom';
+import { ToastCustom } from '../radix/ToastCustom';
 
-import { useToastClipboard } from '../hooks/useToastClipboard';
+import { useToastClipboard } from '../../hooks/useToastClipboard';
 
-import { ModalityContext } from '../contexts/ModalityContext';
-import { BetContext } from '../contexts/BetContext';
+import { ModalityContext } from '../../contexts/ModalityContext';
+import { BetContext } from '../../contexts/BetContext';
 
-import { generateBet } from '../utils/generateBet';
-import { copyToClipboard } from '../utils/copyToClipboard';
+import { generateBet } from '../../utils/generateBet';
+import { copyToClipboard } from '../../utils/copyToClipboard';
 
 export function Bet() {
    const { selectedModality } = useContext(ModalityContext);

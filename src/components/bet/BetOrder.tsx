@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { ModalityContext } from '../contexts/ModalityContext';
+import { ModalityContext } from '../../contexts/ModalityContext';
 
 interface BetOrdersProps {
    titleText: string;

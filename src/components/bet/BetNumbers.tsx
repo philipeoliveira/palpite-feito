@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { useToastNumbers } from '../hooks/useToastNumbers';
+import { useToastNumbers } from '../../hooks/useToastNumbers';
 
-import { ModalityContext } from '../contexts/ModalityContext';
-import { BetContext } from '../contexts/BetContext';
+import { ModalityContext } from '../../contexts/ModalityContext';
+import { BetContext } from '../../contexts/BetContext';
 
-import { generateAvailableNumbersForBet } from '../utils/generateAvailableNumbersForBet';
+import { generateAvailableNumbersForBet } from '../../utils/generateAvailableNumbersForBet';
 
 export function BetNumbers() {
    const { selectedModality } = useContext(ModalityContext);

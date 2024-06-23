@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { ModalityProps } from '../types/ModalityProps';
-import { getModalities } from '../services/ModalitiesService';
-import { ModalityContext } from '../contexts/ModalityContext';
+import { ModalityProps } from '../../types/ModalityProps';
+import { getModalities } from '../../services/ModalitiesService';
+import { ModalityContext } from '../../contexts/ModalityContext';
 
-import { lowercaseWithoutAccents } from '../utils/lowercaseWithoutAccents';
+import { lowercaseWithoutAccents } from '../../utils/lowercaseWithoutAccents';
 
 export function ModalitiesButtons() {
    const [modalities, setModalities] = useState<ModalityProps[]>([]);

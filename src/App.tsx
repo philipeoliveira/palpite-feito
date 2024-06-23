@@ -1,6 +1,6 @@
 import { Header } from './components/Header';
-import { Modalities } from './components/Modalities';
-import { Bet } from './components/Bet';
+import { Modalities } from './components/modalities/Modalities';
+import { Bet } from './components/bet/Bet';
 import { Footer } from './components/Footer';
 
 import { ToastProvider } from './contexts/ToastContext';

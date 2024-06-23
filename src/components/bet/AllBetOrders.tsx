@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
 import { BetOrder } from './BetOrder';
-import { BetContext } from '../contexts/BetContext';
-import sortNumbersAscending from '../utils/sortNumbersAscending';
+import { BetContext } from '../../contexts/BetContext';
+import sortNumbersAscending from '../../utils/sortNumbersAscending';
 
 export function AllBetOrders() {
    const { selectedNumbers, randonBet } = useContext(BetContext);
