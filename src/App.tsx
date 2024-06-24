@@ -1,6 +1,6 @@
+import { Outlet } from 'react-router-dom';
+
 import { Header } from './components/Header';
-import { Modalities } from './components/modalities/Modalities';
-import { Bet } from './components/bet/Bet';
 import { Footer } from './components/Footer';
 
 import { ToastProvider } from './contexts/ToastContext';
@@ -15,8 +15,7 @@ function App() {
                <div className='max-w-[1170px] mx-auto px-7 flex flex-col gap-2'>
                   <Header />
                   <main>
-                     <Modalities />
-                     <Bet />
+                     <Outlet />
                   </main>
                   <Footer />
                </div>
