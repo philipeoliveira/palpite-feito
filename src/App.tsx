@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -8,13 +8,21 @@ import { ModalityProvider } from './contexts/ModalityContext';
 import { BetProvider } from './contexts/BetContext';
 
 function App() {
+   const { pathname } = useLocation();
+
    return (
       <ToastProvider>
          <ModalityProvider>
             <BetProvider>
-               <div className='max-w-[1170px] mx-auto px-7 flex flex-col gap-2'>
+               <div className='max-w-[1170px] mx-auto px-7 flex flex-col'>
                   <Header />
-                  <main>
+                  <main
+                     className={
+                        pathname === '/about'
+                           ? `my-1 bg-[url("src/assets/clovers-bg.png")] bg-right-bottom bg-no-repeat`
+                           : 'my-1'
+                     }
+                  >
                      <Outlet />
                   </main>
                   <Footer />
