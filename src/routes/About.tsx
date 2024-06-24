@@ -15,16 +15,22 @@ export function About() {
          <section className='flex flex-col gap-10 pb-10 px-8'>
             <div className='flex flex-col gap-3 text-lg'>
                <p>
-                  Este site tem como objetivo sortear gratuitamente números de várias
-                  modalidades de jogos. Algumas informações curiosas são mostradas de
-                  acordo com cada sequência gerada pelo sistema, como a quantidade de
-                  números pares e ímpares do palpite feito.
+                  Este site tem como objetivo sortear gratuitamente números para várias
+                  modalidades de jogos da Loteria.{' '}
+                  <span className='uppercase'>
+                     Os números sorteados não garantem nenhuma aposta premiada.
+                  </span>
                </p>
                <p>
-                  As sequências de números sorteados neste site servem apenas como palpite
-                  para a criação de uma aposta, sem qualquer ligação com o sorteio oficial
-                  de cada modalidade. Para apostas oficiais, valores e resultados,
+                  As sequências de números sorteados servem apenas como palpite para a
+                  criação de uma aposta, sem qualquer ligação com a premiação do sorteio
+                  oficial de cada modalidade. Para apostas oficiais, valores e resultados,
                   consulte o site das Loterias CAIXA.
+               </p>
+               <p>
+                  Algumas informações curiosas são mostradas de acordo com cada sequência
+                  gerada pelo sistema, como por exemplo, a quantidade de números pares e
+                  ímpares do palpite feito.
                </p>
                <p>
                   Escolha agora uma modalidade para criar seu palpite. É simples e rápido
