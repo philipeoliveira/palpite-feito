@@ -17,7 +17,7 @@ export function useToastClipboard() {
             className='text-green-100 bg-gray-900 rounded-full'
          />
       );
-      setMessage('Texto copiado com sucesso');
+      setMessage('Palpite copiado com sucesso!');
    };
 
    return { handleToastClipboard };

@@ -17,7 +17,7 @@ export function useToastNumbers() {
             className='text-green-100 bg-gray-900 rounded-full'
          />
       );
-      setMessage('O limite de números para este palpite foi atingido');
+      setMessage('O limite de números para este palpite foi atingido.');
    };
 
    return { handleToastNumbers };
