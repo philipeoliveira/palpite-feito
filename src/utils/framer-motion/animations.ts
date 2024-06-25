@@ -7,3 +7,11 @@ export function animationToggleInfos() {
       { duration: 0.8, delay: 0.1, ease: 'backOut' }
    );
 }
+
+export function animateClover() {
+   animate(
+      '#clover',
+      { scale: [1, 1, 0.8, 1], rotate: [0, 0, 0, 360] },
+      { ease: 'circOut', repeat: Infinity, duration: 3 }
+   );
+}
