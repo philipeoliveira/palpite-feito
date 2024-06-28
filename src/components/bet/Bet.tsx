@@ -20,10 +20,13 @@ export function Bet() {
    const { selectedModality } = useContext(ModalityContext);
    const { minNumbersToBet, totalNumbersAvailable, numberOfColumns } = selectedModality;
 
-   const { setSelectedNumbers, setRandonBet, showOrders, handleToggleInfos } =
-      useContext(BetContext);
-
-   const { selectedNumbers } = useContext(BetContext);
+   const {
+      selectedNumbers,
+      setSelectedNumbers,
+      setRandonBet,
+      showOrders,
+      handleToggleInfos,
+   } = useContext(BetContext);
 
    const { handleToastClipboard } = useToastClipboard();
 
