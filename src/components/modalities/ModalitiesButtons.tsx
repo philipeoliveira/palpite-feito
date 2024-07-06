@@ -34,7 +34,7 @@ export function ModalitiesButtons() {
          className={twMerge(
             'text-[11px] sm:text-xl text-green-300 border border-green-700 py-2.5 sm:py-5 px-3 sm:px-8 rounded duration-200 has-[:focus-visible]:border-green-300',
             selectedModality.name === modality.name
-               ? '-translate-y-[2px] border-b-green-300'
+               ? '-translate-y-[2px] border-b-green-300 arrow-active-menu-item'
                : 'hover:-translate-y-[2px] hover:border-green-300 hover:duration-200 cursor-pointer'
          )}
       >
