@@ -5,12 +5,12 @@ import { Button } from './Button';
 export function Menu() {
    return (
       <nav>
-         <ul className='flex gap-5'>
+         <ul className='flex gap-2 sm:gap-5'>
             <li>
                <Link to='/'>
                   <Button>
                      <TicketPlus size={16} />
-                     Criar palpite
+                     <span className='hidden sm:block'>Criar palpite</span>
                   </Button>
                </Link>
             </li>
@@ -18,7 +18,7 @@ export function Menu() {
                <Link to='/about'>
                   <Button>
                      <AppWindow size={16} />
-                     Sobre o site
+                     <span className='hidden sm:block'>Sobre o site</span>
                   </Button>
                </Link>
             </li>

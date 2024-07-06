@@ -47,15 +47,15 @@ export function Bet() {
    return (
       <section
          id='bet-container'
-         className='flex flex-col gap-10 py-7 px-8 my-10 bg-green-900 rounded'
+         className='flex flex-col gap-5 sm:gap-10 py-3 sm:py-7 px-2.5 sm:px-8 my-4 sm:my-10 bg-green-900 rounded'
       >
          <Subtitle
             subtitle={`Palpite da ${selectedModality.name}`}
             description={`Números para um palpite de jogo da ${selectedModality.name}`}
          ></Subtitle>
 
-         <div id='bet' className='flex gap-10'>
-            <div className='flex flex-col gap-10'>
+         <div id='bet' className='flex flex-col sm:flex-row gap-4 sm:gap-10'>
+            <div className='flex flex-col gap-3 sm:gap-10'>
                <form id='bet-form'>
                   <fieldset
                      aria-label='Selecione números para um palpite de jogo'
@@ -70,15 +70,17 @@ export function Bet() {
                   </fieldset>
                </form>
 
-               <div className='flex flex-col gap-4'>
+               <div className='flex flex-row sm:flex-col gap-2 sm:gap-4'>
                   <Button onClick={() => createBet()}>
                      <RotateCw size={16} />
-                     Recriar palpite
+                     <span className='hidden sm:block'>Recriar palpite</span>
                   </Button>
 
                   <Button onClick={() => handleToggleInfos()}>
                      {showOrders ? <AlignLeft size={15} /> : <ArrowLeftRight size={16} />}
-                     {showOrders ? 'Mostrar cards' : 'Mostrar ordens'}
+                     <span className='hidden sm:block'>
+                        {showOrders ? 'Mostrar cards' : 'Mostrar ordens'}
+                     </span>
                   </Button>
 
                   <Button
@@ -87,7 +89,7 @@ export function Bet() {
                      }}
                   >
                      <Copy size={16} />
-                     Copiar palpite
+                     <span className='hidden sm:block'>Copiar palpite</span>
                   </Button>
                </div>
             </div>

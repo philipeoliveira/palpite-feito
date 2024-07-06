@@ -32,7 +32,7 @@ export function ModalitiesButtons() {
          key={modality.id}
          htmlFor={lowercaseWithoutAccents(modality.name)}
          className={twMerge(
-            'text-xl text-green-300 border border-green-700 py-5 px-8 rounded duration-200 has-[:focus-visible]:border-green-300',
+            'text-[11px] sm:text-xl text-green-300 border border-green-700 py-2.5 sm:py-5 px-3 sm:px-8 rounded duration-200 has-[:focus-visible]:border-green-300',
             selectedModality.name === modality.name
                ? '-translate-y-[2px] border-b-green-300'
                : 'hover:-translate-y-[2px] hover:border-green-300 hover:duration-200 cursor-pointer'

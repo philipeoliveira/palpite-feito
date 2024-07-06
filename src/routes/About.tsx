@@ -12,8 +12,8 @@ export function About() {
             description='É só entrar, criar e sair com seu palpite feito'
          />
 
-         <section className='flex flex-col gap-10 pb-10 px-8'>
-            <div className='flex flex-col gap-3 text-lg'>
+         <section className='flex flex-col gap-5 sm:gap-10 pb-5 sm:pb-10 px-2 sm:px-8'>
+            <div className='flex flex-col gap-2 sm:gap-3 text-xs sm:text-lg'>
                <p>
                   Este site tem como objetivo sortear gratuitamente números para várias
                   modalidades de jogos da Loteria.{' '}

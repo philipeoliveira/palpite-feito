@@ -21,7 +21,7 @@ export function BetCards() {
    const { selectedNumbers } = useContext(BetContext);
 
    return (
-      <ul id='bet-cards' className='pt-2'>
+      <ul id='bet-cards' className='flex sm:block flex-row gap-2 flex-wrap pt-2'>
          <Card>
             {`
                ${selectedNumbers.length}
