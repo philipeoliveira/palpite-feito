@@ -50,8 +50,10 @@ export function Bet() {
          className='flex flex-col gap-5 sm:gap-10 py-3 sm:py-7 px-2.5 sm:px-8 my-4 sm:my-10 bg-green-900 rounded'
       >
          <Subtitle
-            subtitle={`Palpite da ${selectedModality.name}`}
-            description={`Números para um palpite de jogo da ${selectedModality.name}`}
+            subtitle={`Palpite da ${selectedModality.name ? selectedModality.name : ''}`}
+            description={`Números para um palpite de jogo da ${
+               selectedModality.name ? selectedModality.name : ''
+            }`}
          ></Subtitle>
 
          <div id='bet' className='flex flex-col sm:flex-row gap-4 sm:gap-10'>
