@@ -19,7 +19,7 @@ function App() {
                   <main
                      className={
                         pathname === '/about'
-                           ? `my-1 bg-[url("src/assets/clovers-bg.png")] bg-right-bottom bg-no-repeat`
+                           ? `my-1 bg-[url("assets/clovers-bg.png")] bg-right-bottom bg-no-repeat`
                            : 'my-1'
                      }
                   >
