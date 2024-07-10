@@ -61,7 +61,7 @@ export function Bet() {
                <form id='bet-form'>
                   <fieldset
                      aria-label='Selecione números para um palpite de jogo'
-                     className={`grid gap-3`}
+                     className={`grid gap-x-1 gap-y-3`}
                      style={{
                         gridTemplateColumns: `repeat(${numberOfColumns}, minmax(0, 1fr))`,
                      }}
