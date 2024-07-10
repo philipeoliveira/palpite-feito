@@ -14,7 +14,7 @@ export function Footer() {
                >
                   Philipe Oliveira
                </a>
-               <ExternalLink size={14} />
+               <ExternalLink className='w-3 sm:w-4 h-2.5 sm:h-4' />
             </span>
          </p>
       </footer>
