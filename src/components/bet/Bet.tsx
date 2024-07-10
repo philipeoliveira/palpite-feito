@@ -74,14 +74,21 @@ export function Bet() {
 
                <div className='flex flex-row sm:flex-col gap-2 sm:gap-4'>
                   <Button onClick={() => createBet()}>
-                     <RotateCw size={16} />
-                     <span className='hidden sm:block'>Recriar palpite</span>
+                     <RotateCw className='w-3 sm:w-4 h-2.5 sm:h-4' />
+                     <span className='sm:flex sm:gap-1.5'>
+                        Recriar <span className='hidden sm:block'>palpite</span>
+                     </span>
                   </Button>
 
                   <Button onClick={() => handleToggleInfos()}>
-                     {showOrders ? <AlignLeft size={15} /> : <ArrowLeftRight size={16} />}
-                     <span className='hidden sm:block'>
-                        {showOrders ? 'Mostrar cards' : 'Mostrar ordens'}
+                     {showOrders ? (
+                        <AlignLeft className='w-3 sm:w-4 h-2.5 sm:h-4' />
+                     ) : (
+                        <ArrowLeftRight className='w-3 sm:w-4 h-2.5 sm:h-4' />
+                     )}
+                     <span className='sm:flex sm:gap-1.5'>
+                        <span className='hidden sm:block'>Mostrar</span>
+                        {showOrders ? 'cards' : 'ordens'}
                      </span>
                   </Button>
 
@@ -90,8 +97,10 @@ export function Bet() {
                         copyToClipboard(selectedNumbers, handleToastClipboard);
                      }}
                   >
-                     <Copy size={16} />
-                     <span className='hidden sm:block'>Copiar palpite</span>
+                     <Copy className='w-3 sm:w-4 h-2.5 sm:h-4' />
+                     <span className='sm:flex sm:gap-1.5'>
+                        Copiar <span className='hidden sm:block'>palpite</span>
+                     </span>
                   </Button>
                </div>
             </div>
