@@ -13,7 +13,7 @@ export function useToastClipboard() {
       setIcon(
          <CircleCheck
             strokeWidth={2}
-            className='w-3 sm:w-4 h-2.5 sm:h-4 text-green-100 bg-gray-900 rounded-full'
+            className='w-3 sm:w-4 h-3 sm:h-4 text-green-100 bg-gray-900 rounded-full'
          />
       );
       setMessage('Palpite copiado com sucesso!');
