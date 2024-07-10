@@ -43,7 +43,7 @@ export function About() {
 
             <Link to='/'>
                <Button>
-                  <TicketPlus size={16} />
+                  <TicketPlus className='w-2.5 sm:w-4 h-2.5 sm:h-4' />
                   Criar palpite
                </Button>
             </Link>
