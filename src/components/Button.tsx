@@ -8,7 +8,7 @@ export function Button(props: ButtonProps) {
    return (
       <button
          {...props}
-         className='flex items-center justify-center gap-1 sm:gap-2.5 text-[10px] sm:text-sm leading-5 sm:leading-6 uppercase text-green-300 py-0.5 sm:py-1 px-2 sm:px-5 bg-gray-900 border border-green-700 rounded duration-200 hover:border-green-300 hover:-translate-y-[2px] hover:duration-200 focus:border-green-300 focus:duration-200 focus:outline-none'
+         className='flex items-center justify-center gap-1 md:gap-2 lg:gap-2.5 text-[10px] md:text-xs lg:text-sm leading-5 md:leading-6 lg:leading-6 uppercase text-green-300 py-0.5 md:py-1 lg:py-1 px-2 md:px-3 lg:px-5 bg-gray-900 border border-green-700 rounded duration-200 hover:border-green-300 hover:-translate-y-[2px] hover:duration-200 focus:border-green-300 focus:duration-200 focus:outline-none'
       >
          {props.children}
       </button>

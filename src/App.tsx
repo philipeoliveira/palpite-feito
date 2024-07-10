@@ -14,7 +14,7 @@ function App() {
       <ToastProvider>
          <ModalityProvider>
             <BetProvider>
-               <div className='max-w-[1170px] mx-auto px-3 sm:px-7 flex flex-col'>
+               <div className='max-w-[1170px] mx-auto px-3 md:px-5 lg:px-7 flex flex-col'>
                   <Header />
                   <main
                      className={

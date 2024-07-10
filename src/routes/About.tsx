@@ -12,8 +12,8 @@ export function About() {
             description='É só entrar, criar e sair com seu palpite feito'
          />
 
-         <section className='flex flex-col gap-5 sm:gap-10 pb-5 sm:pb-10 px-2 sm:px-8'>
-            <div className='flex flex-col gap-2 sm:gap-3 text-xs sm:text-lg'>
+         <section className='flex flex-col gap-5 md:gap-8 lg:gap-10 pb-5 md:pb-8 lg:pb-10 px-2 md:px-6 lg:px-8'>
+            <div className='flex flex-col gap-2 md:gap-3 lg:gap-3 text-xs md:text-sm lg:text-lg'>
                <p>
                   Este site tem como objetivo sortear gratuitamente números para várias
                   modalidades de jogos da Loteria.{' '}
@@ -43,7 +43,7 @@ export function About() {
 
             <Link to='/'>
                <Button>
-                  <TicketPlus className='w-2.5 sm:w-4 h-2.5 sm:h-4' />
+                  <TicketPlus className='w-2.5 md:w-4 lg:w-4 h-2.5 md:h-4 lg:h-4' />
                   Criar palpite
                </Button>
             </Link>

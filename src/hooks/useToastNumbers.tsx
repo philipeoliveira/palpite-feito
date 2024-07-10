@@ -14,7 +14,7 @@ export function useToastNumbers() {
          <Info
             size={20}
             strokeWidth={2}
-            className='w-3 sm:w-4 h-3 sm:h-4 text-green-100 bg-gray-900 rounded-full'
+            className='w-3 md:w-4 lg:w-4 h-3 md:h-4 lg:h-4 text-green-100 bg-gray-900 rounded-full'
          />
       );
       setMessage('O limite de números para este palpite foi atingido.');
