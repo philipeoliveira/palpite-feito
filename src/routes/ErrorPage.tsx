@@ -29,7 +29,7 @@ export function ErrorPage() {
             <p className='text-sm lg:text-base'>Palpite não encontrado...</p>
          </div>
 
-         <Link to='/' className='m-2'>
+         <Link to='/' className='m-2' tabIndex={-1}>
             <Button>
                <TicketPlus size={16} />
                Criar palpite

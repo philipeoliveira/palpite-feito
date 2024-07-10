@@ -41,7 +41,7 @@ export function About() {
                <p>Boa sorte!</p>
             </div>
 
-            <Link to='/'>
+            <Link to='/' tabIndex={-1}>
                <Button>
                   <TicketPlus className='w-2.5 md:w-4 lg:w-4 h-2.5 md:h-4 lg:h-4' />
                   Criar palpite
