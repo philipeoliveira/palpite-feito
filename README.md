@@ -13,7 +13,6 @@
 <li>Vite</li>
 <li>ReactJS</li>
 <li>TypeScript</li>
-<li>Axios</li>
 <li>Tailwind CSS</li>
 <li>Tailwind Merge</li>
 <li>Lucide (Icons)</li>
