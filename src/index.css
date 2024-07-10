@@ -24,7 +24,7 @@ body::-webkit-scrollbar-thumb:active {
 
 /* Arrow */
 .arrow-active-menu-item:before {
-   @apply w-0 h-0 content-[''] absolute left-0 right-0 m-auto -bottom-2 sm:-bottom-4 border-4 sm:border-8 border-[transparent] border-t-green-300;
+   @apply w-0 h-0 content-[''] absolute left-0 right-0 m-auto -bottom-2 md:-bottom-3 lg:-bottom-4 border-4 md:border-[6px] lg:border-8 border-[transparent] border-t-green-300;
 }
 
 /* Toast Radix */

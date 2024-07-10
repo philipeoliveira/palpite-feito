@@ -47,7 +47,7 @@ export function Bet() {
    return (
       <section
          id='bet-container'
-         className='flex flex-col gap-5 sm:gap-10 py-3 sm:py-7 px-2.5 sm:px-8 my-4 sm:my-10 bg-green-900 rounded'
+         className='flex flex-col gap-5 md:gap-7 lg:gap-10 py-3 md:py-5 lg:py-7 px-2.5 md:px-5 lg:px-8 my-4 md:my-6 lg:my-10 bg-green-900 rounded'
       >
          <Subtitle
             subtitle={`Palpite da ${selectedModality.name ? selectedModality.name : ''}`}
@@ -56,12 +56,12 @@ export function Bet() {
             }`}
          ></Subtitle>
 
-         <div id='bet' className='flex flex-col sm:flex-row gap-4 sm:gap-10'>
-            <div className='flex flex-col gap-3 sm:gap-10'>
+         <div id='bet' className='flex flex-col lg:flex-row gap-6 lg:gap-10'>
+            <div className='flex flex-col gap-6 lg:gap-10'>
                <form id='bet-form'>
                   <fieldset
                      aria-label='Selecione números para um palpite de jogo'
-                     className={`grid gap-x-1 gap-y-3 sm:gap-3`}
+                     className={`grid gap-x-1 gap-y-3 md:gap-3 lg:gap-3`}
                      style={{
                         gridTemplateColumns: `repeat(${numberOfColumns}, minmax(0, 1fr))`,
                      }}
@@ -72,22 +72,22 @@ export function Bet() {
                   </fieldset>
                </form>
 
-               <div className='flex flex-row sm:flex-col gap-2 sm:gap-4'>
+               <div className='flex flex-row lg:flex-col gap-2 md:gap-3 lg:gap-4'>
                   <Button onClick={() => createBet()}>
-                     <RotateCw className='w-2.5 sm:w-4 h-2.5 sm:h-4' />
-                     <span className='sm:flex sm:gap-1.5'>
-                        Recriar <span className='hidden sm:block'>palpite</span>
+                     <RotateCw className='w-2.5 md:w-4 lg:w-4 h-2.5 md:h-4 lg:h-4' />
+                     <span className='lg:flex lg:gap-1.5'>
+                        Recriar <span className='hidden lg:block'>palpite</span>
                      </span>
                   </Button>
 
                   <Button onClick={() => handleToggleInfos()}>
                      {showOrders ? (
-                        <AlignLeft className='w-2.5 sm:w-4 h-2.5 sm:h-4' />
+                        <AlignLeft className='w-2.5 md:w-4 lg:w-4 h-2.5 md:h-4 lg:h-4' />
                      ) : (
-                        <ArrowLeftRight className='w-3 sm:w-4 h-2.5 sm:h-4' />
+                        <ArrowLeftRight className='w-3 lg:w-4 h-2.5 lg:h-4' />
                      )}
-                     <span className='sm:flex sm:gap-1.5'>
-                        <span className='hidden sm:block'>Mostrar</span>
+                     <span className='lg:flex lg:gap-1.5'>
+                        <span className='hidden lg:block'>Mostrar</span>
                         {showOrders ? 'cards' : 'ordens'}
                      </span>
                   </Button>
@@ -97,9 +97,9 @@ export function Bet() {
                         copyToClipboard(selectedNumbers, handleToastClipboard);
                      }}
                   >
-                     <Copy className='w-2.5 sm:w-4 h-2.5 sm:h-4' />
-                     <span className='sm:flex sm:gap-1.5'>
-                        Copiar <span className='hidden sm:block'>palpite</span>
+                     <Copy className='w-2.5 md:w-4 lg:w-4 h-2.5 md:h-4 lg:h-4' />
+                     <span className='lg:flex lg:gap-1.5'>
+                        Copiar <span className='hidden lg:block'>palpite</span>
                      </span>
                   </Button>
                </div>
