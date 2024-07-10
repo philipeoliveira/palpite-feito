@@ -7,7 +7,7 @@ export function Menu() {
       <nav>
          <ul className='flex gap-2 md:gap-3 lg:gap-5'>
             <li>
-               <Link to='/'>
+               <Link to='/' tabIndex={-1}>
                   <Button>
                      <TicketPlus size={16} />
                      <span className='hidden md:block lg:block'>Criar palpite</span>
@@ -15,7 +15,7 @@ export function Menu() {
                </Link>
             </li>
             <li>
-               <Link to='/about'>
+               <Link to='/about' tabIndex={-1}>
                   <Button>
                      <AppWindow size={16} />
                      <span className='hidden md:block lg:block'>Sobre o site</span>
