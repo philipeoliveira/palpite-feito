@@ -56,8 +56,8 @@ export function Bet() {
             }`}
          ></Subtitle>
 
-         <div id='bet' className='flex flex-col lg:flex-row gap-6 lg:gap-10'>
-            <div className='flex flex-col gap-6 lg:gap-10'>
+         <div id='bet' className='flex flex-col lg:flex-row gap-4 lg:gap-10'>
+            <div className='flex flex-col gap-4 lg:gap-10'>
                <form id='bet-form'>
                   <fieldset
                      aria-label='Selecione números para um palpite de jogo'
