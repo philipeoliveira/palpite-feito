@@ -84,7 +84,7 @@ export function Bet() {
                      {showOrders ? (
                         <AlignLeft className='w-2.5 md:w-4 lg:w-4 h-2.5 md:h-4 lg:h-4' />
                      ) : (
-                        <ArrowLeftRight className='w-3 lg:w-4 h-2.5 lg:h-4' />
+                        <ArrowLeftRight className='w-2.5 lg:w-4 h-2.5 lg:h-4' />
                      )}
                      <span className='lg:flex lg:gap-1.5'>
                         <span className='hidden lg:block'>Mostrar</span>
