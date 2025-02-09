@@ -1,6 +1,6 @@
 <h1>Projeto Palpite feito</h1>
-<img src="/.github/palpite-feito-01.png/" alt="Imagem da página Criar palpite" />
-<img src="/.github/palpite-feito-02.png/" alt="Imagem da página Sobre o site" />
+<img src="/.github/cover-01.png/" alt="Imagem da página Criar palpite" />
+<img src="/.github/cover-02.png/" alt="Imagem da página Sobre o site" />
 <hr>
 <h2>Descrição</h2>
 <p>Este site tem como objetivo sortear gratuitamente números para várias modalidades de jogos da Loteria. OS NÚMEROS SORTEADOS NÃO GARANTEM NENHUMA APOSTA PREMIADA.</p>
