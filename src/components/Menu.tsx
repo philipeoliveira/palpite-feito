@@ -54,7 +54,7 @@ export function Menu() {
                initial={{ y: '-100vh' }}
                animate={{ y: 0 }}
                transition={{ duration: 0.3, ease: 'anticipate' }}
-               className={`fixed top-0 left-0 w-full h-full bg-gray-900 z-10`}
+               className={`fixed top-0 left-0 w-full h-screen bg-gray-900 z-10`}
             >
                <ul
                   role='menubar'
